@@ -1,16 +1,40 @@
 {
-  "name": "givebu",
-  "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/www"
-  },
   "dependencies": {
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.0"
-  }
+    "axios": "^0.18.0",
+    "boostrap": "^2.0.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.3.1",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.7",
+    "react": "^16.8.4",
+    "react-bootstrap": "^1.0.0-beta.5",
+    "react-clearfix": "^1.0.0",
+    "react-dom": "^16.8.4",
+    "react-jsonschema-form-layout": "^1.0.4",
+    "react-router-dom": "^4.4.0"
+  },
+  "name": "GiveBU",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "cd givebu-react-front-end && npm start",
+    "server": "cd server && npm start",
+    "start": "concurrently --kill-others \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephshin2/GiveBU.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "3.5.1"
+  },
+  "bugs": {
+    "url": "https://github.com/stephshin2/GiveBU/issues"
+  },
+  "homepage": "https://github.com/stephshin2/GiveBU#readme",
+  "description": ""
 }
