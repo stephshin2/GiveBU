@@ -4,6 +4,8 @@
     "boostrap": "^2.0.0",
     "bootstrap": "^4.3.1",
     "jquery": "^3.3.1",
+    "mysql": "^2.16.0",
+    "npm": "^6.9.0",
     "popper": "^1.0.1",
     "popper.js": "^1.14.7",
     "react": "^16.8.4",
@@ -20,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd givebu-react-front-end && npm start",
     "server": "cd server && npm start",
-    "start": "concurrently --kill-others \"npm run server\" \"npm run client\""
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",

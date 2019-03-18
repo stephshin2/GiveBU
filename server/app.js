@@ -4,6 +4,20 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'giveBU'
+
+});
+
+con.connect(function(err) {
+	if (err) throw err;
+	console.log("Connected!");
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
