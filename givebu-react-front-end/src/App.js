@@ -1,46 +1,45 @@
-import React, { Component } from 'react';
-import {Button,
-        Nav
+import React, { Component,} from 'react';
+import { BrowserRouter, } from 'react-router-dom';
+import {
+        Nav,
+        Container
         } from 'react-bootstrap';
-import logo from './logo.svg';
+import logo from './givebu-logo.png';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
         <div className="App">
-
-            <div role="region">
-                <Nav className="justify-content-right" activeKey="/home"
-                    onSelect={selectedKey => alert(`selected ${selectedKey}`)}
-                >
+            <Container>
+                <Nav>
                     <Nav.Item>
-                        <Nav.Link href="/home">HOME</Nav.Link>
+                        <Nav.Link href="/">HOME</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="link-1">VOLUNTEER</Nav.Link>
+                        <Nav.Link href="/volunteer">VOLUNTEER</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="link-2">DONATE</Nav.Link>
+                        <Nav.Link href="/donate">DONATE</Nav.Link>
                     </Nav.Item>
                     <Nav.Item>
-                        <Nav.Link eventKey="disabled" disabled>
-                            PROFILE
-                        </Nav.Link>
+                        <Nav.Link href="/profile">PROFILE</Nav.Link>
                     </Nav.Item>
                 </Nav>
-            </div>
+            </Container>
 
 
+            <img src={logo} className="App-logo" alt="logo"/>
 
-            <p>
-                Test
-            </p>
-            <Button variant="primary" size="lg" active>
-                Primary button
-            </Button>
+            <h1>
+                Currently in construction... Please be patient :)
+            </h1>
 
         </div>
+
+
+
+
       // {/*<div className="App">*/}
       // {/*<header className="App-header">*/}
       //     {/*<img src={logo} className="App-logo" alt="logo" />*/}
@@ -57,6 +56,8 @@ class App extends Component {
       //     {/*</a>*/}
       //   {/*</header>*/}
       // {/*</div>*/}
+
+
     );
   }
 }

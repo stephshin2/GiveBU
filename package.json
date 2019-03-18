@@ -11,7 +11,9 @@
     "react-clearfix": "^1.0.0",
     "react-dom": "^16.8.4",
     "react-jsonschema-form-layout": "^1.0.4",
-    "react-router-dom": "^4.4.0"
+    "react-router-dom": "^4.4.0",
+    "react-scripts": "^2.1.8",
+    "yarn": "^1.13.0"
   },
   "name": "GiveBU",
   "version": "1.0.0",
@@ -20,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "client": "cd givebu-react-front-end && npm start",
     "server": "cd server && npm start",
-    "start": "concurrently --kill-others \"npm run server\" \"npm run client\""
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
