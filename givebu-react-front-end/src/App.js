@@ -1,64 +1,45 @@
 import React, { Component,} from 'react';
 import {
+    Route,
+    NavLink,
+    HashRouter
+} from "react-router-dom";
+
+import {
         Nav,
         Container
         } from 'react-bootstrap';
+
 import logo from './givebu-logo.png';
 import './App.css';
+
+import Home from "./Home";
+import Volunteer from "./Volunteer";
+
 
 class App extends Component {
   render() {
     return (
-       /*
-        <div className="App">
-
-            <Container>
-                <Nav>
-                    <Nav.Item>
-                        <Nav.Link href="/">HOME</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="/volunteer">VOLUNTEER</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="/donate">DONATE</Nav.Link>
-                    </Nav.Item>
-                    <Nav.Item>
-                        <Nav.Link href="/profile">PROFILE</Nav.Link>
-                    </Nav.Item>
-                </Nav>
-            </Container>
+        <HashRouter>
+            <div>
+                <ul className="header">
+                    <NavLink to="/"> <img src={logo} className="Home-App-logo" alt="logo"/> </NavLink>
+                    <Nav variant="pills" defaultActiveKey="/home">
+                        <li><NavLink to="/">Home</NavLink></li>
+                        <li><NavLink to="/volunteer">Volunteer</NavLink></li>
+                        <li><NavLink to="/profile">Profile</NavLink></li>
+                    </Nav>
+                </ul>
 
 
-            <img src={logo} className="App-logo" alt="logo"/>
+                <div className="content">
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/volunteer" component={Volunteer}/>
+                </div>
 
-            <h1>
-                Currently in construction... Please be patient :)
-            </h1>
+            </div>
+        </HashRouter>
 
-        </div>
-*/
-
-
-
-      // {/*<div className="App">*/}
-      // {/*<header className="App-header">*/}
-      //     {/*<img src={logo} className="App-logo" alt="logo" />*/}
-      //     {/*<p>*/}
-      //       {/*Edit <code>src/App.js</code> and save to reload.*/}
-      //     {/*</p>*/}
-      //     {/*<a*/}
-      //       {/*className="App-link"*/}
-      //       {/*href="https://reactjs.org"*/}
-      //       {/*target="_blank"*/}
-      //       {/*rel="noopener noreferrer"*/}
-      //     {/*>*/}
-      //       {/*Learn React*/}
-      //     {/*</a>*/}
-      //   {/*</header>*/}
-      // {/*</div>*/}
-
-    null
     );
   }
 }
