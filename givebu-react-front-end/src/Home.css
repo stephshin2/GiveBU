@@ -1,5 +1,21 @@
-.homepage {
-    border-style: solid;
-    border-width: 2px;
-    border-color: red;
+.home {
+    background-image: url('./givingheart.jpg');
+}
+
+.welcome {
+    /*border-style: solid;*/
+    /*border-width: 2px;*/
+    /*border-color: red;*/
+    text-align: center;
+    padding: 100px;
+    font-size: 50px;
+}
+
+.description {
+    /*border-style: solid;*/
+    /*border-width: 2px;*/
+    /*border-color: red;*/
+    text-align: center;
+    padding: 50px;
+    font-size: 30px;
 }
