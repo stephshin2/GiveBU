@@ -5,14 +5,16 @@
   "scripts": {
     "start": "node ./bin/www"
   },
+  "devDependencies": {
+    "npm": "^6.9.0",
+    "yarn": "^1.13.0"
+  },
   "dependencies": {
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.5",
-    "debug": "~2.6.9",
-    "e": "0.0.4",
     "express": "~4.16.0",
+    "morgan": "~1.9.0",
     "http-errors": "~1.6.2",
-    "jade": "~1.11.0",
-    "morgan": "~1.9.0"
+    "pug": "^2.0.3"
   }
 }
