@@ -9,7 +9,9 @@ import './App.css';
 class App extends Component {
   render() {
     return (
+       /*
         <div className="App">
+
             <Container>
                 <Nav>
                     <Nav.Item>
@@ -35,7 +37,7 @@ class App extends Component {
             </h1>
 
         </div>
-
+*/
 
 
 
@@ -56,7 +58,7 @@ class App extends Component {
       //   {/*</header>*/}
       // {/*</div>*/}
 
-
+    null
     );
   }
 }
