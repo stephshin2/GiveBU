@@ -5,7 +5,7 @@ import {
     Button,
     Row,
     Col,
-    Container
+    Container,
 } from 'react-bootstrap';
 
 import './Home.css';
