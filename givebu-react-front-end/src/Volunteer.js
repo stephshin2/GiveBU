@@ -60,35 +60,33 @@ class Volunteer extends Component {
                 <Table responsive className='test'>
                     <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Committee Name</th>
-                        <th>Table heading</th>
+                        <th>Organization</th>
+                        <th>Where</th>
+                        <th>When</th>
+                        <th>Points</th>
 
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>1</td>
-                        <td>
-                            <Button variant="primary" className="Cause 1">
-                            Aids Action Committee
-                            <Badge variant="light">Tue/Wed 5-6pm </Badge>
-                            <span className="sr-only">Volunteering Page</span>
-                            </Button></td>
-
-                        <td>Table cell</td>
+                        <td> <a href="https://aac.org/check-in/"  target="_blank">Aids Action Committee</a></td>
+                        <td>75 Amory Street</td>
+                        <td>Mon-Fri 9-5</td>
+                        <td>100</td>
 
                     </tr>
                     <tr>
-                        <td>2</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
+                        <td><a href="http://afhboston.org" target="_blank"> Artists for Humanity</a></td>
+                        <td>Boston Medical Center, 88 E Newton St</td>
+                        <td>Fridays 10-12</td>
+                        <td>100</td>
 
                     </tr>
                     <tr>
-                        <td>3</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
+                        <td><a href="https://docs.google.com/forms/d/e/1FAIpQLSchig2UkJYYLFErQxQh-teNRUVbIkehFuWnBO8-Q8Byj5boZQ/viewform" target="_blank"> Family Gym</a></td>
+                        <td>BCYF Centers across Boston</td>
+                        <td>Saturdays 9-12</td>
+                        <td>95</td>
 
                     </tr>
                     </tbody>
