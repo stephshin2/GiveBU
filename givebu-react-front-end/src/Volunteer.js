@@ -17,11 +17,11 @@ class Volunteer extends Component {
         return (
 
             <div>
-                <h1>
-                    This is our volunteering page.
+                <h1 align="middle">
+                    Here is your custom list of Volunteering events:
                 </h1>
 
-                <h2> Volunteer Now!</h2>
+                <h2 align="middle"> Volunteer Now!</h2>
 {/*
                 <Row>
                 <Button variant="primary" className="Cause 1">
@@ -56,8 +56,8 @@ class Volunteer extends Component {
                 </Card>;
                 */}
 
-
-                <Table responsive className='test'>
+                <container className= {"test"}>
+                <Table responsive border-style='dash'>
                     <thead>
                     <tr>
                         <th>Organization</th>
@@ -92,6 +92,7 @@ class Volunteer extends Component {
                     </tbody>
                 </Table>;
 
+                </container>
             </div>
 
         );

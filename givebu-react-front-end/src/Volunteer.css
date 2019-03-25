@@ -1,3 +1,5 @@
-.test{
-    border-color: red;
+.test {
+    background-color: #0b97c4;
+    font-size: 400px;
+    border-style: dashed;
 }
