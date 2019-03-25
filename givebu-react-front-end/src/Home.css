@@ -1,8 +1,8 @@
-.home {
-    background-image: url('./givingheart.jpg');
+.welcome-div {
+    background-image: url('images/givingheart.jpg');
 }
 
-.welcome {
+.welcome-message {
     /*border-style: solid;*/
     /*border-width: 2px;*/
     /*border-color: red;*/
@@ -18,4 +18,26 @@
     text-align: center;
     padding: 50px;
     font-size: 30px;
+}
+
+.start-button {
+    padding-bottom: 100px;
+}
+
+.what-we-do {
+    background-color: aliceblue;
+}
+
+.header {
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+
+.who-we-are {
+    background-color: lightyellow;
+}
+
+.bios {
+    text-align: center;
 }

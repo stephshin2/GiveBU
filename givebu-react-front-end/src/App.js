@@ -10,7 +10,7 @@ import {
         Container
         } from 'react-bootstrap';
 
-import logo from './givebu-logo.png';
+import logo from './images/givebu-logo.png';
 import './App.css';
 
 import Home from "./Home";
@@ -39,7 +39,6 @@ class App extends Component {
 
             </div>
         </HashRouter>
-
     );
   }
 }
