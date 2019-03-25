@@ -1,9 +1,17 @@
+
 .App {
   text-align: center;
+
+
 }
 
 .Home-App-logo {
   width: 150px;
+
+}
+
+.App{
+  font-family:'Roboto', sans-serif;
 
 }
 
