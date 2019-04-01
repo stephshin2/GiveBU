@@ -57,16 +57,12 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <div className="header-text">
-                                    WHAT WE DO
-                                </div>
-                            </Col>
-                        </Row>
-
-                        <Row>
-                            <Col>
-                                <div className="description">
-                                    GiveBU helps Lapsed Lucy, who wants to be more involved in community service on and around campus, by providing an easy and rewarding way to get engaged while also connecting with others.
+                                <div className="header">
+                                    <h2 align="middle">About Us</h2>
+                                    <p align="middle">We found that a common problem amongst college students who are actively seeking ways to give back to their community is miscommunication.
+                                        Students who are looking to get involved are repeatedly discouraged by the difficulty of finding volunteer opportunities and the fear of hefty time commitments.
+                                        This is where GiveBU comes in. We are a group of Boston University students working to connect our peers to volunteer opportunities on and around campus.
+                                        Not only does GiveBU make it easy to find opportunities based on your interests and availability but we make this previously tedious task, exciting.</p>
                                 </div>
                             </Col>
                         </Row>
@@ -78,8 +74,8 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <div className="header-text">
-                                    WHO WE ARE
+                                <div className="header">
+                                   <h2 align='middle'>Meet the Team</h2>
                                 </div>
                             </Col>
                         </Row>
@@ -137,9 +133,7 @@ class Home extends Component {
                         </div>
                     </Container>
                 </div>
-
-
-
+            <footer align="middle">Copyrighted</footer>
             </div>
 
 
