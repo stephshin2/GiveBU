@@ -7,7 +7,6 @@ import {
 
 import {
         Nav,
-        Container
         } from 'react-bootstrap';
 
 import logo from './images/givebu-logo.png';
@@ -25,7 +24,7 @@ class App extends Component {
             <div>
                 <ul className="header">
                     <NavLink to="/"> <img src={logo} className="Home-App-logo" alt="logo"/> </NavLink>
-                    <Nav variant="pills" defaultActiveKey="/home">
+                    <Nav variant="pills" defaultActiveKey="/home" className="nav-bar-items">
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/volunteer">Volunteer</NavLink></li>
                         <li><NavLink to="/profile">Profile</NavLink></li>
@@ -36,6 +35,7 @@ class App extends Component {
                 <div className="content">
                     <Route exact path="/" component={Home}/>
                     <Route path="/volunteer" component={Volunteer}/>
+                    {/*<Route path="/profile" component={Profile}/>*/}
                 </div>
 
             </div>

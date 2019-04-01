@@ -38,3 +38,17 @@
     transform: rotate(360deg);
   }
 }
+
+.header {
+    /*border-style: solid;*/
+    /*border-width: 2px;*/
+    /*border-color: red;*/
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.nav-bar-items {
+    float: right;
+    padding-right: 50px;
+    padding-top: 20px;
+}

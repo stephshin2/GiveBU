@@ -57,7 +57,7 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <div className="header">
+                                <div className="header-text">
                                     WHAT WE DO
                                 </div>
                             </Col>
@@ -65,8 +65,8 @@ class Home extends Component {
 
                         <Row>
                             <Col>
-                                <div>
-
+                                <div className="description">
+                                    GiveBU helps Lapsed Lucy, who wants to be more involved in community service on and around campus, by providing an easy and rewarding way to get engaged while also connecting with others.
                                 </div>
                             </Col>
                         </Row>
@@ -78,7 +78,7 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <div className="header">
+                                <div className="header-text">
                                     WHO WE ARE
                                 </div>
                             </Col>
@@ -92,7 +92,7 @@ class Home extends Component {
                                         Maria Castellaneta
                                     </Row>
                                     <Row>
-                                        <Image src={mariaPhoto} thumbnail />
+                                        <Image src={mariaPhoto} thumbnail/>
                                     </Row>
                                     <Row>
                                         Graphic Designer/Front End Engineer
