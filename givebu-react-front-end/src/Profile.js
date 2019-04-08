@@ -2,18 +2,9 @@ import request from 'request';
 import React, { Component,} from 'react';
 import cookie from 'react-cookies'
 
+import bu_weblogin_Photo from './images/bu_weblogin.png';
 
-import {
-    Nav,
-    Container,
-    Row,
-    Col,
-    Button,
-    Badge,
-    Card,
-    ListGroup,
-    Table
-} from 'react-bootstrap';
+import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class Profile extends Component {
     constructor(props){
@@ -38,15 +29,47 @@ class Profile extends Component {
 
         }.bind(this));
     }
+
     render() {
         return (
 
-            <div>
+            <div align="middle">
+{/*
+
                 <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
                 <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
                 <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN</button>
                 {this.state.authentication_status}
+
+*/}
+
+            <Form>
+
+                <FormGroup>
+                    <img src={bu_weblogin_Photo}/>
+                </FormGroup>
+
+                <FormGroup>
+                    <Label for="exampleEmail">BU login name</Label> {' '}
+                    <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
+
+                </FormGroup>
+
+                <FormGroup>
+                    <Label for="examplePassword">Password</Label> {' '}
+                    <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
+                </FormGroup>
+
+                <FortmGroup>
+                    <Button color= 'primary' size= 'lg' active onClick={() => this.loginUser(this.state.username, this.state.password)}>Log In</Button>
+                    {this.state.authentication_status}
+                </FortmGroup>
+
+
+            </Form>
+
             </div>
+
         );
     }
 }
