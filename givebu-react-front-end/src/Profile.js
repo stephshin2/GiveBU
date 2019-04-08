@@ -44,7 +44,7 @@ class Profile extends Component {
             <div>
                 <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
                 <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
-                <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN BITCHH</button>
+                <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN</button>
                 {this.state.authentication_status}
             </div>
         );
