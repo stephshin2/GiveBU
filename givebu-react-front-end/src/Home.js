@@ -14,7 +14,7 @@ import './Home.css';
 import mariaPhoto from './images/maria-profile-photo.jpeg';
 import aliPhoto from './images/ali-profile-photo.jpeg';
 import gabyPhoto from './images/gaby-profile-photo.jpeg';
-import stephPhoto from './images/steph-profile-photo.jpg';
+import stephPhoto from './images/steph_profile.jpg';
 
 
 class Home extends Component {
