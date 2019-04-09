@@ -1,14 +1,33 @@
-.welcome-div {
-    background-image: url('images/givingheart.jpg');
+
+
+p{
+    font-family:'Roboto', sans-serif;
 }
+
+.welcome-div {
+    background-image: url('images/homepageGraphic.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+
+}
+
+.layer{
+    background-color: rgba(14, 46, 71, 0.65);
+}
+
 
 .welcome-message {
     /*border-style: solid;*/
     /*border-width: 2px;*/
     /*border-color: red;*/
     text-align: center;
-    padding: 100px;
-    font-size: 50px;
+    padding: 60px;
+    font-size: 140px;
+    color: white;
+    line-height: 150px;
 }
 
 .description {
@@ -16,28 +35,53 @@
     /*border-width: 2px;*/
     /*border-color: red;*/
     text-align: center;
-    padding: 50px;
     font-size: 30px;
+    color: white;
 }
 
-.start-button {
+.startButton {
+    padding-top: 60px;
     padding-bottom: 100px;
+    text-align: center;
 }
 
 .what-we-do {
-    background-color: aliceblue;
+    margin-top: 0;
+    background-color: white;
+    line-height: 30px;
+    padding: 80px;
+    margin-left: auto;
+    margin-right:auto;
+    font-size: 20px;
+
 }
 
-.header-text {
-    padding-top: 100px;
-    padding-bottom: 50px;
+.header {
+    padding: 0px;
 }
 
 
-.who-we-are {
-    background-color: lightyellow;
+
+h2{
+    padding-bottom: 20px;
 }
 
-.bios {
-    text-align: center;
+.bios{
+
+    display: flex;
+    flex-direction: row;
 }
+
+.person{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 1em;
+    width: 100%;
+
+}
+
+
+
+
+
