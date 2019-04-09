@@ -14,7 +14,7 @@ import './App.css';
 
 import Home from "./Home";
 import Volunteer from "./Volunteer";
-
+import Profile from "./Profile";
 
 
 class App extends Component {
@@ -35,7 +35,7 @@ class App extends Component {
                 <div className="content">
                     <Route exact path="/" component={Home}/>
                     <Route path="/volunteer" component={Volunteer}/>
-                    {/*<Route path="/profile" component={Profile}/>*/}
+                    <Route path="/profile" component={Profile}/>
                 </div>
 
             </div>

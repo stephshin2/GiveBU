@@ -2,9 +2,12 @@ const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
+const cookieSession = require('cookie-session');
 const logger = require('morgan');
 const cors = require('cors');
-var mysql = require('mysql');
+const mysql = require('mysql');
+
+
 
 // var con = mysql.createConnection({
 // 	host: 'localhost',
@@ -21,6 +24,7 @@ var mysql = require('mysql');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var loginRouter = require('./routes/login');
 var volunteerRouter = require('./routes/volunteer');
 
 var app = express();
@@ -33,11 +37,21 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(cookieSession({
+    name: 'session',
+    keys: ['hey'],
+    // Cookie Options
+    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+}))
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/login', loginRouter);
 app.use('/volunteer', volunteerRouter);
 
 // catch 404 and forward to error handler
