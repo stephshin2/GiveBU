@@ -57,13 +57,13 @@ class Profile extends Component {
 
                 <FormGroup>
                     <Label for="examplePassword">Password</Label> {' '}
-                    <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
+                    <input placeholder="password" type= "password" onChange={event => this.setState({password: event.target.value})}></input>
                 </FormGroup>
 
-                <FortmGroup>
+                <FormGroup>
                     <Button color= 'primary' size= 'lg' active onClick={() => this.loginUser(this.state.username, this.state.password)}>Log In</Button>
                     {this.state.authentication_status}
-                </FortmGroup>
+                </FormGroup>
 
 
             </Form>
