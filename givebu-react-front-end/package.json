@@ -3,13 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "react": "^16.8.4",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-dom": "^16.8.4",
     "react-router-dom": "^5.0.0",
-    "react-sticky": "^6.0.3"
-=======
+    "react-sticky": "^6.0.3",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-cookie": "^3.1.2",
@@ -17,7 +15,6 @@
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.0",
     "reactstrap": "^8.0.0"
->>>>>>> c4c7d6430995b52ed5150cf0b6c93e1f4f899a2a
   },
   "devDependencies": {
     "npm": "^6.9.0",
