@@ -52,6 +52,10 @@ class Volunteer extends Component {
                         <ModalBody>
                             THIS EVENT DOES THIS AND THAT ON THIS DAY AND LOCATION.
 
+                            <iframe width="400" height="300" id="gmap_canvas"
+                             src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                             frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>
+
                         </ModalBody>
 
                         <Button color="primary" onClick={this.toggleNested}>Invite Friends</Button>
