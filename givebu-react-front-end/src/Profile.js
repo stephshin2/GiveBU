@@ -2,13 +2,11 @@ import request from 'request';
 import React, { Component,} from 'react';
 import cookie from 'react-cookies'
 
+import bu_weblogin_Photo from './images/bu_weblogin.png';
 
-import {
-    Image,
-    Row,
-    Col,
-    Container
-} from 'react-bootstrap';
+
+import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
 
 import buLogo from './images/bu_weblogin.png';
 
@@ -35,42 +33,47 @@ class Profile extends Component {
 
         }.bind(this));
     }
+
     render() {
         return (
 
-            <div className="login">
+            <div align="middle">
+{/*
 
-                <Container>
-                    <Row>
-                        <Col>
-                            <Image src={buLogo}/>
-                        </Col>
-                    </Row>
+                <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
+                <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
+                <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN</button>
+                {this.state.authentication_status}
 
+*/}
 
-                    <Row>
-                        <Col>
-                            <input className="username" placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
-                        </Col>
-                    </Row>
+            <Form>
 
-                    <Row>
-                        <Col>
-                            <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
-                        </Col>
-                    </Row>
+                <FormGroup>
+                    <img src={bu_weblogin_Photo}/>
+                </FormGroup>
 
-                    <Row>
-                        <Col>
-                            <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN</button>
-                        </Col>
-                    </Row>
+                <FormGroup>
+                    <Label for="exampleEmail">BU login name</Label> {' '}
+                    <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
 
+                </FormGroup>
+
+                <FormGroup>
+                    <Label for="examplePassword">Password</Label> {' '}
+                    <input placeholder="password" type= "password" onChange={event => this.setState({password: event.target.value})}></input>
+                </FormGroup>
+
+                <FormGroup>
+                    <Button color= 'primary' size= 'lg' active onClick={() => this.loginUser(this.state.username, this.state.password)}>Log In</Button>
                     {this.state.authentication_status}
+                </FormGroup>
 
-                </Container>
+
+            </Form>
 
             </div>
+
         );
     }
 }

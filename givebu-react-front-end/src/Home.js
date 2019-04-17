@@ -23,6 +23,7 @@ class Home extends Component {
             <div className="Home">
 
                 <div className="welcome-div">
+                    <div className="layer">
                     <Container>
                         <Row>
                             <Col>
@@ -35,21 +36,22 @@ class Home extends Component {
                         <Row>
                             <Col>
                                 <div className="description">
-                                    We are a group of BU students working to help connect BU students to volunteering opportunities in the Boston community.
+                                    Find ways to give back to your community and collect rewards!
                                 </div>
                             </Col>
                         </Row>
 
-                        <div className="start-button">
+                        <div className="startButton">
                             <Row>
                                 <div>
-                                    <Button href="/#/volunteer" variant="primary" size="lg" block>
+                                    <Button href="/#/volunteer" variant="primary" size="lg">
                                         START NOW!
                                     </Button>
                                 </div>
                             </Row>
                         </div>
                     </Container>
+                    </div>
                 </div>
 
 
@@ -59,11 +61,13 @@ class Home extends Component {
                             <Col>
                                 <div className="header">
                                     <h2 align="middle">About Us</h2>
-                                    <p align="middle">We found that a common problem amongst college students who are actively seeking ways to give back to their community is miscommunication.
-                                        Students who are looking to get involved are repeatedly discouraged by the difficulty of finding volunteer opportunities and the fear of hefty time commitments.
-                                        This is where GiveBU comes in. We are a group of Boston University students working to connect our peers to volunteer opportunities on and around campus.
-                                        Not only does GiveBU make it easy to find opportunities based on your interests and availability but we make this previously tedious task, exciting.</p>
                                 </div>
+                                    <div className="what-we-do-content">
+                                    <p> We found that a common problem amongst college students who are actively seeking ways to give back to their community is miscommunication.
+                                        Students who are looking to get involved are repeatedly discouraged by the difficulty of finding volunteer opportunities and the fear of hefty time commitments.</p>
+                                    <p> This is where GiveBU comes in. We are a group of Boston University students working to connect our peers to volunteer opportunities on and around campus.
+                                        Not only does GiveBU make it easy to find opportunities based on your interests and availability but we make this previously tedious task, exciting. </p>
+                                    </div>
                             </Col>
                         </Row>
                     </Container>
@@ -81,60 +85,54 @@ class Home extends Component {
                         </Row>
 
                         <div className="bios">
-
-                            <Row>
-                                <Col lg={3}>
-                                    <Row>
-                                        Maria Castellaneta
-                                    </Row>
-                                    <Row>
-                                        <Image src={mariaPhoto} thumbnail/>
-                                    </Row>
-                                    <Row>
-                                        Graphic Designer/Front End Engineer
-                                    </Row>
-                                </Col>
-                                <Col lg={3}>
-                                    <Row>
-                                        Ali Kinay
-                                    </Row>
-                                    <Row>
-                                        <Image src={aliPhoto} thumbnail />
-                                    </Row>
-                                    <Row>
-                                        Full Stack Engineer
-                                    </Row>
-                                </Col>
-                                <Col lg={3}>
-                                    <Row>
-                                        Gaby Rasson
-                                    </Row>
-                                    <Row>
-                                        <Image src={gabyPhoto} thumbnail />
-                                    </Row>
-                                    <Row>
-                                        Back End Engineer
-                                    </Row>
-                                </Col>
-
-                                <Col lg={3}>
-                                    <Row>
-                                        Stephanie Shin
-                                    </Row>
-                                    <Row>
+                            <div className="person">
+                                <div className="picture">
+                                    <Image src={mariaPhoto} thumbnail/>
+                                </div>
+                                <div className="name">
+                                    Maria Castellaneta
+                                </div>
+                            </div>
+                            <div className="person">
+                                <div className="picture">
+                                    <Image src={aliPhoto} thumbnail />
+                                </div>
+                                <div className="name">
+                                    Ali Kinay
+                                </div>
+                            </div>
+                            <div className="person">
+                            <div className= "picture">
+                                <Image src={gabyPhoto} thumbnail />
+                            </div>
+                                <div className="name">
+                                    Gaby Rasson
+                                </div>
+                            </div>
+                                <div className="person">
+                                    <div className="picture">
                                         <Image src={stephPhoto} thumbnail />
-                                    </Row>
-                                    <Row>
-                                        Full Stack Engineer
-                                    </Row>
-                                </Col>
-
-                             </Row>
-                        </div>
+                                    </div>
+                                    <div className="name">
+                                        Stephanie Shin
+                                    </div>
+                                </div>
+                            </div>
                     </Container>
-                </div>
-            <footer align="middle">Copyrighted</footer>
+                        </div>
+
+
+
+                <footer align="middle">Copyrighted</footer>
             </div>
+
+
+
+
+
+
+
+
 
 
         );
