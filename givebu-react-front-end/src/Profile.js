@@ -7,6 +7,9 @@ import bu_weblogin_Photo from './images/bu_weblogin.png';
 
 import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
+import {Row, Col} from 'react-bootstrap';
+
+import './Profile.css';
 
 import buLogo from './images/bu_weblogin.png';
 
@@ -15,9 +18,10 @@ class Profile extends Component {
         super(props)
         this.state = {
             username: undefined,
-            password: undefined
+            password: undefined,
         }
     }
+
     loginUser(username, password){
 
         var options = {
@@ -31,51 +35,57 @@ class Profile extends Component {
             cookie.save('username', username)
             this.setState({'authentication_status': body})
 
+
         }.bind(this));
+
+        // this.props.history.push('/');
     }
 
     render() {
         return (
 
             <div align="middle">
-{/*
 
-                <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
-                <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
-                <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN</button>
-                {this.state.authentication_status}
+                <Form>
 
-*/}
+                    <FormGroup>
+                        <img src={bu_weblogin_Photo}/>
+                    </FormGroup>
 
-            <Form>
+                    <FormGroup>
+                        <Row>
+                            <Label className="login-label" for="exampleEmail">BU login name</Label> {' '}
+                        </Row>
 
-                <FormGroup>
-                    <img src={bu_weblogin_Photo}/>
-                </FormGroup>
+                        <Row>
+                            <input className="login-input" placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
+                        </Row>
 
-                <FormGroup>
-                    <Label for="exampleEmail">BU login name</Label> {' '}
-                    <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
+                    </FormGroup>
 
-                </FormGroup>
+                    <FormGroup>
+                        <Row>
+                            <Label className="login-label" for="examplePassword">Password</Label> {' '}
+                        </Row>
 
-                <FormGroup>
-                    <Label for="examplePassword">Password</Label> {' '}
-                    <input placeholder="password" type= "password" onChange={event => this.setState({password: event.target.value})}></input>
-                </FormGroup>
-
-                <FormGroup>
-                    <Button color= 'primary' size= 'lg' active onClick={() => this.loginUser(this.state.username, this.state.password)}>Log In</Button>
-                    {this.state.authentication_status}
-                </FormGroup>
+                        <Row>
+                            <input className="login-input" placeholder="password" type= "password" onChange={event => this.setState({password: event.target.value})}></input>
+                        </Row>
+                    </FormGroup>
 
 
-            </Form>
+                    <FormGroup>
+                        <Button color='primary' size= 'lg' active onClick={() => this.loginUser(this.state.username, this.state.password)}>Log In</Button>
+                        {this.state.authentication_status}
+                    </FormGroup>
 
+
+                </Form>
             </div>
 
         );
     }
 }
+
 
 export default Profile;

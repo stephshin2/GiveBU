@@ -1,3 +1,6 @@
+body {
+    background-color: #f1f1f1;
+}
 
 .login {
     height: 100vh; /* Magic here */
@@ -11,4 +14,21 @@
 
     padding-top: 50px;
     padding-bottom: 200px;
+}
+
+.login-label {
+    padding-right: 375px;
+    text-align: left;
+}
+
+.login-input {
+    font-size: 15px;
+    padding-right: 300px;
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    background-color: #E8F0FE;
+    border-color: #6D9FCF;
+    border-width: 1px;
 }
