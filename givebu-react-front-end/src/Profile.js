@@ -4,16 +4,13 @@ import cookie from 'react-cookies'
 
 
 import {
-    Nav,
-    Container,
+    Image,
     Row,
     Col,
-    Button,
-    Badge,
-    Card,
-    ListGroup,
-    Table
+    Container
 } from 'react-bootstrap';
+
+import buLogo from './images/bu_weblogin.png';
 
 class Profile extends Component {
     constructor(props){
@@ -41,11 +38,38 @@ class Profile extends Component {
     render() {
         return (
 
-            <div>
-                <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
-                <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
-                <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN</button>
-                {this.state.authentication_status}
+            <div className="login">
+
+                <Container>
+                    <Row>
+                        <Col>
+                            <Image src={buLogo}/>
+                        </Col>
+                    </Row>
+
+
+                    <Row>
+                        <Col>
+                            <input className="username" placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col>
+                            <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col>
+                            <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN</button>
+                        </Col>
+                    </Row>
+
+                    {this.state.authentication_status}
+
+                </Container>
+
             </div>
         );
     }
