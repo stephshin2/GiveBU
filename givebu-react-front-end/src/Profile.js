@@ -4,7 +4,11 @@ import cookie from 'react-cookies'
 
 import bu_weblogin_Photo from './images/bu_weblogin.png';
 
+
 import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
+
+import buLogo from './images/bu_weblogin.png';
 
 class Profile extends Component {
     constructor(props){
