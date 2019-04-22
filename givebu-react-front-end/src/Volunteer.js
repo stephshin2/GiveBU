@@ -43,6 +43,12 @@ class Volunteer extends Component {
             <Jumbotron fluid>
 
             <Container>
+
+                <Row>
+                    VOLUNTEER NOW
+                </Row>
+
+
             <Table>
                 <thead>
                 <tr>

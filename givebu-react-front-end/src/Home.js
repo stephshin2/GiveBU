@@ -9,16 +9,45 @@ import {
     Image
 } from 'react-bootstrap';
 
+
 import './Home.css';
+
 
 import mariaPhoto from './images/maria-profile-photo.jpeg';
 import aliPhoto from './images/ali-profile-photo.jpeg';
 import gabyPhoto from './images/gaby-profile-photo.jpeg';
 import stephPhoto from './images/steph_profile.jpg';
 
+import insta from './images/instagram.png';
+import mail from './images/mail.png';
 
 class Home extends Component {
+
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            hovering: false
+
+        };
+
+        const hoverDiv = () => (
+            <div>
+                HELLO
+            </div>
+        );
+    }
+
+
+
+
+
     render() {
+        const style = this.state.hovering ? {} : {}
+
+        const handleMouseEnter = () => this.setState({hovering : true});
+        const handleMouseLeave = () => this.setState({hovering : false});
+
         return (
             <div className="Home">
 
@@ -86,38 +115,56 @@ class Home extends Component {
 
                         <div className="bios">
                             <div className="person">
-                                <div className="picture">
-                                    <Image src={mariaPhoto} thumbnail/>
+                                <div className="pic-container">
+                                    <Image className="picture" src={mariaPhoto} thumbnail/>
+                                    <div className="pic-hover">
+                                        <a href = "mailto: mariacas@bu.edu"><img className="icon" src={mail}/> {'   '}</a>
+                                        <a href="https://www.instagram.com/mariacas26/"><img className="icon" src={insta}/></a>
+                                    </div>
                                 </div>
                                 <div className="name">
                                     Maria Castellaneta
                                 </div>
                             </div>
                             <div className="person">
-                                <div className="picture">
-                                    <Image src={aliPhoto} thumbnail />
+                                <div className="pic-container">
+                                    <Image className="picture" src={aliPhoto} thumbnail/>
+                                    <div className="pic-hover">
+                                        <a href = "mailto: alikinay@bu.edu"><img className="icon" src={mail}/> {'   '}</a>
+                                        <a href="https://www.instagram.com/alikinay/"><img className="icon" src={insta}/></a>
+                                    </div>
                                 </div>
                                 <div className="name">
                                     Ali Kinay
                                 </div>
                             </div>
                             <div className="person">
-                            <div className= "picture">
-                                <Image src={gabyPhoto} thumbnail />
-                            </div>
+                                <div className="pic-container">
+                                    <Image className="picture" src={gabyPhoto} thumbnail/>
+                                    <div className="pic-hover">
+                                        <a href = "mailto: grasson@bu.edu"><img className="icon" src={mail}/> {'   '}</a>
+                                        <a href="https://www.instagram.com/"><img className="icon" src={insta}/></a>
+                                    </div>
+                                </div>
                                 <div className="name">
                                     Gaby Rasson
                                 </div>
                             </div>
-                                <div className="person">
-                                    <div className="picture">
-                                        <Image src={stephPhoto} thumbnail />
-                                    </div>
-                                    <div className="name">
-                                        Stephanie Shin
+                            <div className="person" style={style} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                                <div className="pic-container">
+                                    <Image className="picture" src={stephPhoto} thumbnail/>
+                                    <div className="pic-hover">
+                                        <a href = "mailto: shin2@bu.edu"><img className="icon" src={mail}/> {'   '}</a>
+                                        <a href="https://www.instagram.com/stephshin2/"><img className="icon" src={insta}/></a>
                                     </div>
                                 </div>
+
+                                <div className="name">
+                                    Stephanie Shin
+                                </div>
                             </div>
+                        </div>
+
                     </Container>
                         </div>
 

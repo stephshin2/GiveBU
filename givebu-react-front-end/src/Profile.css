@@ -10,12 +10,6 @@ body {
     left: 50% !important;
 }
 
-.loginLogo {
-
-    padding-top: 50px;
-    padding-bottom: 200px;
-}
-
 .login-label {
     padding-right: 375px;
     text-align: left;
@@ -23,12 +17,60 @@ body {
 
 .login-input {
     font-size: 15px;
-    padding-right: 300px;
-    padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px 300px 5px 10px;
     border-radius: 5px;
     background-color: #E8F0FE;
     border-color: #6D9FCF;
     border-width: 1px;
 }
+
+.login-logo {
+    margin-right: 320px;
+}
+
+.login-btn {
+    margin-right: 395px;
+    margin-top: 10px;
+}
+
+
+.loader {
+    position:fixed;
+    padding:100px;
+    margin:0;
+
+    top:0;
+    left:0;
+
+    width: 100%;
+    height: 100%;
+    background:rgba(255,255,255,0.5);
+}
+
+.alert {
+    width: 30%;
+    text-align: left;
+    padding: 10px;
+}
+
+
+
+.profile-headers {
+    margin: 10px 10px 30px 10px;
+}
+
+.point-header {
+    padding-bottom: 10px;
+    font-size: 125%;
+}
+
+.points-btns {
+    margin-top: 15px;
+    position: relative;
+    float: left;
+}
+
+/*.redeem-btn {*/
+    /*margin-right: 320px;*/
+/*}*/
+
