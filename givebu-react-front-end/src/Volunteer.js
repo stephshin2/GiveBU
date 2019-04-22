@@ -1,7 +1,7 @@
 import React, { Component,} from 'react';
 //import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col } from 'reactstrap';
-
+import './Volunteer.css';
 
 class Volunteer extends Component {
     constructor(props) {
@@ -41,7 +41,7 @@ class Volunteer extends Component {
     render() {
         return (
 
-            <div>
+            <div className="content">
             <Container>
                 <Button color="danger" onClick={ this.toggle}>Contact Us</Button>
                 {/*<Modal isOpen={this.state.modal} fade={false}*/}

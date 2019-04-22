@@ -2,9 +2,10 @@ import request from 'request';
 import React, { Component,} from 'react';
 import cookie from 'react-cookies'
 
-import bu_weblogin_Photo from './images/bu_weblogin.png';
+import buLogin_Photo from './images/buLogin.png';
 
 import {Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import './Profile.css';
 
 class Profile extends Component {
     constructor(props){
@@ -33,26 +34,15 @@ class Profile extends Component {
     render() {
         return (
 
-            <div align="middle">
-{/*
-
-                <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
-                <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
-                <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN</button>
-                {this.state.authentication_status}
-
-*/}
-
-            <Form>
-
+            <div className= "myDiv">
+             <Form>
                 <FormGroup>
-                    <img src={bu_weblogin_Photo}/>
+                    <img src={buLogin_Photo}/>
                 </FormGroup>
 
                 <FormGroup>
                     <Label for="exampleEmail">BU login name</Label> {' '}
                     <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
-
                 </FormGroup>
 
                 <FormGroup>
@@ -64,11 +54,23 @@ class Profile extends Component {
                     <Button color= 'primary' size= 'lg' active onClick={() => this.loginUser(this.state.username, this.state.password)}>Log In</Button>
                     {this.state.authentication_status}
                 </FormGroup>
-
-
             </Form>
 
             </div>
+
+
+
+
+
+        /*{
+
+
+                        <input placeholder="username" onChange={event => this.setState({username: event.target.value})}></input>
+                        <input placeholder="password" onChange={event => this.setState({password: event.target.value})}></input>
+                        <button onClick={() => this.loginUser(this.state.username, this.state.password)}>LOGIN</button>
+                        {this.state.authentication_status}
+        }*/
+
 
         );
     }

@@ -5,7 +5,8 @@ p{
 }
 
 .welcome-div {
-    /*background-image: url('images/homepageGraphic.jpg');*/
+    padding-top: 10px;
+    background-image: url('images/homepage.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -28,6 +29,7 @@ p{
     font-size: 140px;
     color: white;
     line-height: 150px;
+    margin-top: 40px;
 }
 
 .description {
@@ -42,8 +44,12 @@ p{
 .startButton {
     padding-top: 60px;
     padding-bottom: 100px;
-    text-align: center;
+    justify-content: center;
+    margin-left: 47%;
+
+
 }
+
 
 .what-we-do {
     margin-top: 0;
@@ -81,7 +87,14 @@ h2{
 
 }
 
+@media (max-width: 768px) {
+    .welcome-message{
+        font-size: 100px;
+        line-height: 100px;
 
 
+    }
+
+}
 
 
