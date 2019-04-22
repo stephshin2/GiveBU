@@ -78,23 +78,57 @@ h2{
     flex-direction: row;
 }
 
-.person{
+.person {
     display: flex;
     flex-direction: column;
     background-color: #fff;
     padding: 1em;
     width: 100%;
+}
 
+.pic-container {
+    position: relative;
+}
+
+.picture {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.pic-hover {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+.pic-container:hover .picture {
+    opacity: 0.3;
+}
+
+.pic-container:hover .pic-hover {
+    opacity: 1;
+}
+
+.icon {
+    width: 50%;
 }
 
 @media (max-width: 768px) {
-    .welcome-message{
+    .welcome-message {
         font-size: 100px;
         line-height: 100px;
 
 
     }
-
 }
-
 

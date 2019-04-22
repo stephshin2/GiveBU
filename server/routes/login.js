@@ -36,9 +36,9 @@ router.get('/', function(req, res, next) {
     request(options, function (error, response, body) {
         if (error) throw new Error(error);
         if(response.caseless.dict.etag){
-            res.send("INVALID USERNAME OR PASSWORD")
+            res.send("INVALID")
         } else {
-            res.send("SUCCESSFUL AUTHENTICATION");
+            res.send("SUCCESS");
         }
 
     });
