@@ -6,6 +6,7 @@ const cookieSession = require('cookie-session');
 const logger = require('morgan');
 const cors = require('cors');
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
 
 
 
@@ -21,6 +22,17 @@ const mysql = require('mysql');
 // 	if (err) throw err;
 // 	console.log("Connected!");
 // });
+var dbConn = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: 'gabbers',
+  database: 'giveBU'
+});
+
+dbConn.connect(function(err) {
+  if(err) throw err;
+  console.log("Connected");
+});
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -37,6 +49,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.use(cookieSession({
     name: 'session',
@@ -44,6 +60,26 @@ app.use(cookieSession({
     // Cookie Options
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }))
+
+
+app.get('/volunteer', function(req, res) {
+  dbConn.query('SELECT * FROM organization', function(error, results, fields) {
+    if (error) throw error;
+    console.log("Server connected")
+    return res.send(results);
+  });
+});
+
+app.get('/volunteer/:id', function (req, res) {
+  let org_id = req.paramas.id;
+  if(!org_id) {
+    return res.status(400).send({ error: true, message: 'Please provide org_id'});
+  }
+  dbConnect.query('SELECT * FROM organization where id=?', org_id, function(error, results, fields) {
+    if (error) throw error;
+    return res.send({ error: false, data: results[0], message: 'volunteer list'});
+  });
+});
 
 
 app.use(express.static(path.join(__dirname, 'public')));
@@ -69,5 +105,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;

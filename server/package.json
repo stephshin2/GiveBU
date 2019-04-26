@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "npm": "^6.9.0",
     "yarn": "^1.13.0"
   },
