@@ -1,1 +1,46 @@
-{"id":1,"name":"AIDS Action Committee","contact":"William Roche","email":"wroche@fenwayhealth.org","descr":"Since 1993, Check-In volunteers have provided information and referrals, along with ,a sensitive and caring ear, to AIDS Action Committee’s clients, helping to maintain a strong connection between clients and staff members. Volunteers complement our services by helping clients work through problems and encouraging successes over the phone.","dates":"Tuesday and Wednesday nights 6:00 pm to 9:00 pm","location":"75 Amory Street"},
+[
+  {
+    "id":1,
+    "name":"AIDS Action Committee",
+    "contact":"William Roche",
+    "email":"wroche@fenwayhealth.org",
+    "descr":"Since 1993, Check-In volunteers have provided information and referrals, along with ,a sensitive and caring ear, to AIDS Action Committee’s clients, helping to maintain a strong connection between clients and staff members. Volunteers complement our services by helping clients work through problems and encouraging successes over the phone.",
+    "dates":"Tuesday and Wednesday nights 6:00 pm to 9:00 pm",
+    "location":"75 Amory Street"
+  },
+  {
+      "id":2,
+      "name":"All Hands and Hearts",
+      "contact":"Julia Schemmer",
+      "email":"julia.s@hands.org",
+      "descr":"We are currently working around the world to help communities affected by natural disasters. As a volunteer, you'd be a critical part of rebuilding homes and schools for community members post-disaster.",
+      "dates":"We accept volunteers on a rolling basis for however long you're available. We've had volunteers join us for a day, a week, or even months on end! ",
+      "location":"Our programs are in Texas, Puerto Rico, the US Virgin Islands, the British Virgin Islands, Mexico and Dominica. Once you apply and are confirmed, you will receive the exact address and directions to the base."
+  },
+  {
+      "id":3,
+      "name":"Art Resource Collaborative for Kids (ARCK)",
+      "contact":"Sara Demeter","email":"development@arckboston.org",
+      "descr":"Miles of Murals is a free community wide festival along David Ortiz Dr. across from Fenway Park. There will be an area for vendors, activities, food, and dancing.  There will also be live chalk artists along David Ortiz Dr. that will lead to the unveiling of our mural project Miles of Murals: Walls that Speak.  After the unveiling, there will be a ticketed gallery reception and silent auction featuring art from our students and local artists.",
+      "dates":"May 4 2019. 11-9pm; various time slots within we will work with you",
+    "location":"David Ortiz Dr. Boston MA 02215"
+  },
+  {
+      "id":4,
+      "name":"Artists for Humanity",
+      "contact":"Liz Rosner",
+      "email":"lrosner@afhboston.org",
+      "descr":"The best way to volunteer with Artists For Humanity is to come visit our studios, meet our young people, and talk with us about how you can become involved. Volunteers spread the word about what our teens can do, promote our art work, refer young people who could benefit from working with us, work on special projects and/or provide 1:1 tutoring to teens. Tutoring is one of the key ways to get involved. As an after-work supplemental program, tutoring provides critical support to AFH teen artists to ensure a stronger pathway toward academic success.",
+      "dates":"Our program runs on Mondays and Fridays from 3pm-6pm and on Tuesdays Wednesdays and Thursdays from 6pm-8pm. In general we ask that volunteers commit to one day a week for at least one semester.",
+      "location":"100 W 2ND ST BOSTON MA 02127"
+  },
+  {
+    "id":5,
+    "name":"Bilingual Education for Central America",
+    "contact":"Erin Rudegeair",
+    "email":"volunteer@becaschools.org",
+    "descr":"BECA aims to provide its volunteers with a challenging, transformative experience that gives an in-depth understanding of grassroots international development, underserved Central American communities, bilingual teaching strategies, and community capacity building techniques. As a result, BECA teachers develop the skills and responsibilities to be effective teachers, communicators, and leaders.",
+    "dates":" July 8 2019 to June 2020 for full-year volunteers who commit to one academic school year. January 2020 to June 2020 for half-year volunteers.",
+    "location":"Cofradia and Vida Nueva Cortes; Macuelizo, Santa Barabara, Honduras"
+  }
+]
