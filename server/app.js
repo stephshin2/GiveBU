@@ -25,7 +25,7 @@ const bodyParser = require('body-parser');
 var dbConn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'gabbers',
   database: 'giveBU'
 });
 
@@ -66,12 +66,13 @@ app.get('/volunteer', function(req, res) {
   dbConn.query('SELECT * FROM organization', function(error, results, fields) {
     if (error) throw error;
     console.log("Server connected")
-    return res.send(results);
+    return res.send({events:results});
   });
 });
 
-app.get('/volunteer/:id', function (req, res) {
-  let org_id = req.paramas.id;
+app.get('/volunteer/?=id', function (req, res) {
+  let org_id = req.params.id;
+  console.log(org_id)
   if(!org_id) {
     return res.status(400).send({ error: true, message: 'Please provide org_id'});
   }
