@@ -9,7 +9,6 @@ import {
     Nav,
 } from 'react-bootstrap';
 
-import { CookiesProvider } from 'react-cookie';
 
 import logo from './images/givebu-logo.png';
 import './App.css';
@@ -22,7 +21,7 @@ import Profile from "./Profile";
 class App extends Component {
     render() {
         return (
-            <CookiesProvider>
+
             <HashRouter>
                 <div>
                     <ul className="header">
@@ -43,7 +42,6 @@ class App extends Component {
 
                 </div>
             </HashRouter>
-            </CookiesProvider>
 
         );
     }

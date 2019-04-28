@@ -10,10 +10,12 @@
     "react-cookie": "^3.1.2",
     "react-cookies": "^0.1.0",
     "react-dom": "^16.8.6",
+    "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
     "react-sticky": "^6.0.3",
     "reactstrap": "^8.0.0",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "universal-cookie": "^3.1.0"
   },
   "devDependencies": {
     "npm": "^6.9.0",

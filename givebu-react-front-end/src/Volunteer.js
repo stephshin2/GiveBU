@@ -2,6 +2,7 @@ import React, { Component,} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col, Alert, Jumbotron } from 'reactstrap';
 
 class Volunteer extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -43,7 +44,6 @@ class Volunteer extends Component {
                 <Jumbotron fluid>
 
                     <Container>
-
                         <Row>
                             VOLUNTEER NOW
                         </Row>
@@ -53,6 +53,7 @@ class Volunteer extends Component {
                             <thead>
                             <tr>
                                 <th>Organization</th>
+                                <th> Add to Profile </th>
                                 <th>Points</th>
 
                             </tr>
@@ -83,12 +84,16 @@ class Volunteer extends Component {
                                             <Button color="primary" onClick={this.toggleNested}>Invite Friends</Button>
 
                                             <ModalFooter>
-                                                <Button color="success" onClick={this.toggle}>REGISTER</Button>{' '}
+                                                <Button color="success" onClick={this.toggle}>R</Button>{' '}
                                                 <Button color="danger" onClick={this.toggle}>EXPLORE OTHER EVENTS</Button>
                                             </ModalFooter>
                                         </Modal>
                                     </Container>
 
+                                </td>
+
+                                <td>
+                                    <Button color="success" onClick={this.toggle}>ADD TO PROFILE</Button>{'      '}
                                 </td>
 
                                 <td>100</td>
