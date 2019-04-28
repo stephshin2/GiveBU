@@ -1,1 +1,13 @@
-{"id":1,"name":"AIDS Action Committee","contact":"William Roche","email":"wroche@fenwayhealth.org","descr":"Since 1993, Check-In volunteers have provided information and referrals, along with ,a sensitive and caring ear, to AIDS Action Committee’s clients, helping to maintain a strong connection between clients and staff members. Volunteers complement our services by helping clients work through problems and encouraging successes over the phone.","dates":"Tuesday and Wednesday nights 6:00 pm to 9:00 pm","location":"75 Amory Street"},
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "AIDS Action Committee",
+      "contact": "William Roche",
+      "email": "wroche@fenwayhealth.org",
+      "descr": "Since 1993, Check-In volunteers have provided information and referrals, along with ,a sensitive and caring ear, to AIDS Action Committee’s clients, helping to maintain a strong connection between clients and staff members. Volunteers complement our services by helping clients work through problems and encouraging successes over the phone.",
+      "dates": "Tuesday and Wednesday nights 6:00 pm to 9:00 pm",
+      "location": "75 Amory Street"
+    }
+  ]
+}

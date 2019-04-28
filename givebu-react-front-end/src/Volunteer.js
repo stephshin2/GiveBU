@@ -1,5 +1,5 @@
 import React, { Component,} from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col, Alert, Jumbotron } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col, Alert, Jumbotron, Badge } from 'reactstrap';
 
 class Volunteer extends Component {
     constructor(props) {
@@ -8,6 +8,7 @@ class Volunteer extends Component {
             modal: false,
             nestedModal:false,
             closeAll: false,
+            posts:[]
         };
 
         this.toggle = this.toggle.bind(this);
@@ -35,17 +36,45 @@ class Volunteer extends Component {
         });
     }
 
+    componentDidMount(){
+        let url= "http://localhost:3001/posts"
+        fetch(url)
+            .then(resp => resp.json())
+            .then(data => {
+                let posts = data.map((post,index) => {
+                    return (
+                        <div key={index}>
+                            <p>{post.name}</p>
+                            <p>{post.contact}</p>
+                            <p>{post.email}</p>
+                            <p>{post.descr}</p>
+                            <p>{post.dates}</p>
+                            <p>{post.location}</p>
+
+                        </div>
+                    )
+                })
+                this.setState({posts:posts});
+            })
+    }
+
 
     render() {
         return (
-
             <div>
+
+                {this.state.posts}
+
+            </div>
+
+
+            /*<div>
                 <Jumbotron fluid>
 
                     <Container>
 
                         <Row>
-                            VOLUNTEER NOW
+                            <h2 align="middle"> VOLUNTEER NOW </h2>
                         </Row>
 
 
@@ -64,8 +93,8 @@ class Volunteer extends Component {
                                 <td>
                                     <Container>
                                         <Button color="danger" onClick={ this.toggle}>Aids Action Commitee</Button>
-                                        {/*<Modal isOpen={this.state.modal} fade={false}*/}
-                                        {/*toggle={this.toggle} style={{width: "200px", display: "block"}}>*/}
+                                        <Modal isOpen={this.state.modal} fade={false}
+                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
                                         <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
                                             <ModalHeader toggle={this.toggle}>Aids Action Commitee</ModalHeader>
 
@@ -91,15 +120,20 @@ class Volunteer extends Component {
 
                                 </td>
 
-                                <td>100</td>
+                                <td>
+                                    <Button variant="primary">
+                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
+                                    </Button>
+
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>
                                     <Container>
                                         <Button color="light" onClick={ this.toggle}>All Hands and Hearts</Button>
-                                        {/*<Modal isOpen={this.state.modal} fade={false}*/}
-                                        {/*toggle={this.toggle} style={{width: "200px", display: "block"}}>*/}
+                                        <Modal isOpen={this.state.modal} fade={false}
+                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
                                         <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
                                             <ModalHeader toggle={this.toggle}>All Hands and Hearts</ModalHeader>
 
@@ -119,14 +153,18 @@ class Volunteer extends Component {
                                         </Modal>
                                     </Container>
                                 </td>
-                                <td>100</td>
+                                <td>
+                                    <Button variant="primary">
+                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
+                                    </Button>
+                                </td>
                             </tr>
                             <tr>
                                 <td>
                                     <Container>
                                         <Button color="primary" onClick={ this.toggle}>Cradles to Crayons</Button>
-                                        {/*<Modal isOpen={this.state.modal} fade={false}*/}
-                                        {/*toggle={this.toggle} style={{width: "200px", display: "block"}}>*/}
+                                        <Modal isOpen={this.state.modal} fade={false}
+                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
                                         <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
                                             <ModalHeader toggle={this.toggle}>Cradles to Crayons</ModalHeader>
                                             <ModalBody>
@@ -151,15 +189,19 @@ class Volunteer extends Component {
                                         </Modal>
                                     </Container>
                                 </td>
-                                <td>95</td>
+                                <td>
+                                    <Button variant="primary">
+                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
+                                    </Button>
+                                </td>
                             </tr>
 
                             <tr>
                                 <td>
                                     <Container>
                                         <Button color="info" onClick={ this.toggle}>Art Resource Collaborative for Kids (ARCK)</Button>
-                                        {/*<Modal isOpen={this.state.modal} fade={false}*/}
-                                        {/*toggle={this.toggle} style={{width: "200px", display: "block"}}>*/}
+                                        <Modal isOpen={this.state.modal} fade={false}
+                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
                                         <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
                                             <ModalHeader toggle={this.toggle}>Art Resource Collaborative for Kids (ARCK)</ModalHeader>
 
@@ -185,7 +227,11 @@ class Volunteer extends Component {
                                         </Modal>
                                     </Container>
                                 </td>
-                                <td>95</td>
+                                <td>
+                                    <Button variant="primary">
+                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
+                                    </Button>
+                                </td>
 
                             </tr>
 
@@ -193,8 +239,8 @@ class Volunteer extends Component {
                                 <td>
                                     <Container>
                                         <Button color="danger" onClick={ this.toggle}>Artists for Humanity</Button>
-                                        {/*<Modal isOpen={this.state.modal} fade={false}*/}
-                                        {/*toggle={this.toggle} style={{width: "200px", display: "block"}}>*/}
+                                        <Modal isOpen={this.state.modal} fade={false}
+                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
                                         <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
                                             <ModalHeader toggle={this.toggle}>Artists for Humanity</ModalHeader>
 
@@ -220,7 +266,11 @@ class Volunteer extends Component {
                                         </Modal>
                                     </Container>
                                 </td>
-                                <td>95</td>
+                                <td>
+                                    <Button variant="primary">
+                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
+                                    </Button>
+                                </td>
                             </tr>
 
 
@@ -228,8 +278,8 @@ class Volunteer extends Component {
                                 <td>
                                     <Container>
                                         <Button color="warning" onClick={ this.toggle}>Bilingual Education for Central America</Button>
-                                        {/*<Modal isOpen={this.state.modal} fade={false}*/}
-                                        {/*toggle={this.toggle} style={{width: "200px", display: "block"}}>*/}
+                                        <Modal isOpen={this.state.modal} fade={false}
+                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
                                         <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
                                             <ModalHeader toggle={this.toggle}>Bilingual Education for Central America</ModalHeader>
 
@@ -256,9 +306,13 @@ class Volunteer extends Component {
                                         </Modal>
                                     </Container>
                                 </td>
-                                {/*<td>BCYF Centers across Boston</td>*/}
-                                {/*<td>Saturdays 9-12</td>*/}
-                                <td>95</td>
+                                <td>BCYF Centers across Boston</td>
+                                <td>Saturdays 9-12</td>
+                                <td>
+                                    <Button variant="primary">
+                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
+                                    </Button>
+                                </td>
 
                             </tr>
 
@@ -273,10 +327,11 @@ class Volunteer extends Component {
 
 
 
-            </div>
+            </div>*/
 
         );
     }
+
 }
 
 export default Volunteer;
