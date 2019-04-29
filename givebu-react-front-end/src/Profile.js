@@ -1,8 +1,7 @@
 import request from 'request';
 import React, { Component,} from 'react';
-import cookie from 'react-cookies'
 
-import {instanceOf } from 'prop-types';
+import Cookies from 'universal-cookie';
 
 import bu_weblogin_Photo from './images/bu_weblogin.png';
 
@@ -13,23 +12,27 @@ import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, Mo
 import {Container, Row, Col} from 'react-bootstrap';
 
 import './Profile.css';
+import Home from "./Home";
+
+const cookies = new Cookies();
 
 class Profile extends Component {
 
-    constructor(props){
+    constructor(props) {
 
         super(props);
 
         this.state = {
-            username: undefined,
+            username: cookies.get('username'),
             password: undefined,
 
             loading: true,
 
-            hideLogin: false,
-            hideProfile: true,
+            hideLogin: cookies.get('username') == undefined ? false : true,
+            hideProfile: cookies.get('username') == undefined ? true : false,
 
             incorrectLogin: false,
+            loggedOut: false,
 
             modal: false,
             nestedModal:false,
@@ -40,12 +43,15 @@ class Profile extends Component {
 
         };
 
+
         this.handleLogin = this.handleLogin.bind(this);
         this.incorrectLogin = this.incorrectLogin.bind(this);
 
         this.toggle = this.toggle.bind(this);
         this.toggleNested = this.toggleNested.bind(this);
         this.toggleAll = this.toggleAll.bind(this);
+
+        this.logOut = this.logOut.bind(this);
 
     }
 
@@ -86,7 +92,6 @@ class Profile extends Component {
         // TODO: redeem should link somewhere?
     }
 
-
     loginUser(username, password){
 
         const options = {
@@ -102,8 +107,11 @@ class Profile extends Component {
             this.setState({loading : false});
 
             if (error) throw new Error(error);
-            cookie.save('username', username);
+            // cookie.save('username', username);
 
+            cookies.set('username', username);
+
+            console.log("cooooookie", cookies.get('username'));
 
             this.setState({'authentication_status': body});
 
@@ -121,22 +129,30 @@ class Profile extends Component {
 
     }
 
+    logOut() {
+        cookies.remove('username');
+        console.log("post log out cookie", cookies.get('username'));
+
+        this.setState({hideLogin: false});
+        this.setState({hideProfile: true});
+        this.setState({loggedOut: true})
+    }
+
     render() {
 
         const loading = this.state.loading ? {} : {display: 'none'};
         const loginFields = this.state.hideLogin ? {display: 'none'} : {};
         const profilePage = this.state.hideProfile ? {display: 'none'} : {};
         const incorrectLogin = this.state.incorrectLogin ? {} : {display: 'none'};
+        const loggedOut = this.state.loggedOut ? {} : {display: 'none'};
 
 
         return (
-
 
             <div align="middle">
                 <div style={loading} className="loader">
                     <img src={heartbeat}/>
                 </div>
-
 
                 <div style={loginFields}>
 
@@ -153,6 +169,13 @@ class Profile extends Component {
                                     <strong>ERROR: Invalid username/password combination</strong>
                                 </div>
                             </div>
+
+                            <div style={loggedOut}>
+                                <div className="alert alert-success invalid-login-alert" role="alert">
+                                    <strong>You have successfully logged out. </strong>
+                                </div>
+                            </div>
+
 
                             <FormGroup>
                                 <Row>
@@ -253,10 +276,17 @@ class Profile extends Component {
                                                 <Button href="/#/volunteer" color="danger" disabled={this.state.canRedeem}>GET MORE POINTS</Button> {' '}
                                             </div>
                                         </Row>
+
                                     </Container>
                                 </Jumbotron>
                             </Col>
                         </Row>
+
+                        <Row>
+
+                            <Button color="danger" onClick={this.logOut}>LOG OUT </Button>
+                        </Row>
+
                     </Container>
                 </div>
             </div>
