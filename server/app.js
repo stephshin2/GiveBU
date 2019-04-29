@@ -67,7 +67,7 @@ app.get('/volunteer', function(req, res) {
   dbConn.query('SELECT * FROM organization', function(error, results, fields) {
     if (error) throw error;
     console.log("Server connected")
-    return (res.send(data))
+    return res.send(data);
   });
 });
 
