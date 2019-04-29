@@ -34,7 +34,7 @@ class Volunteer extends Component {
    
 
     componentDidMount() {
-        fetch('http://localhost:3000/events')
+        fetch('http://localhost:3002/events')
         .then(res => res.json())
         .then((data) => {
             this.setState({events: data})
