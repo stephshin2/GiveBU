@@ -54,12 +54,11 @@ class Volunteer extends Component {
             <Table>
                 <thead>
                 <tr>
-                    <th></th>
                     <th>Organization</th>
+                    <th>Register</th>
                     <th>Dates</th>
                     <th>Location</th>
                     <th>Points</th>
-                    <th></th>
                 </tr>
                 </thead>
 
@@ -97,6 +96,8 @@ class Volunteer extends Component {
                                 </Container>
 
                             </td>
+
+                            <td> <Button color="success"> REGISTER </Button> </td>
 
                             <td>{event.dates}</td>
                             <td>{event.location}</td>
