@@ -54,8 +54,8 @@ class Volunteer extends Component {
             <Table>
                 <thead>
                 <tr>
-                    <th></th>
                     <th>Organization</th>
+                    <th>Register</th>
                     <th>Dates</th>
                     <th>Location</th>
                     <th>Points</th>
@@ -98,6 +98,7 @@ class Volunteer extends Component {
 
                             </td>
 
+                            <td> <Button color="success" onClick={ this.toggle}>REGISTER</Button> </td>
                             <td>{event.dates}</td>
                             <td>{event.location}</td>
                             <td>{event.points}</td>
