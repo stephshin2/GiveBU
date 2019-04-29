@@ -22,10 +22,11 @@ const bodyParser = require('body-parser');
 // 	if (err) throw err;
 // 	console.log("Connected!");
 // });
+
 var dbConn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'gabbers',
+  password: '',
   database: 'giveBU'
 });
 

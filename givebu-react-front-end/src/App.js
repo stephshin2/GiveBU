@@ -7,7 +7,8 @@ import {
 
 
 import { Navbar, Nav, NavItem, NavbarBrand, MenuItem, button, toggler, icon} from 'react-bootstrap';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 
 
 import logo from './images/givebu-logo.png';
