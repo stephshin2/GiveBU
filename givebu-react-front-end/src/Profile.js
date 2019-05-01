@@ -140,7 +140,7 @@ class Profile extends Component {
                         <Form>
 
                             <FormGroup>
-                                <img className='login-logo' src={buLogin_Photo}/>
+                                <img className='login-logo' src={buLogin_Photo} />
                             </FormGroup>
 
                             <div style={incorrectLogin}>

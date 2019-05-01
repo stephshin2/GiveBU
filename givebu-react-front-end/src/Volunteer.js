@@ -45,12 +45,10 @@ class Volunteer extends Component {
 
     render() {
         return (
-            <div>
-            <Jumbotron fluid>
-            <Container>
-                <Row>
-                    VOLUNTEER NOW
-                </Row>
+            <Jumbotron>
+                <h2> Volunteer Now</h2>
+                <div className="table">
+
             <Table>
                 <thead>
                 <tr>
@@ -74,9 +72,9 @@ class Volunteer extends Component {
                     ))}
                 </tbody>
             </Table>
-            </Container>
+
+                </div>
             </Jumbotron>
-            </div>
         );
     }
 }

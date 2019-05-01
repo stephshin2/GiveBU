@@ -7,7 +7,7 @@ import {
 
 
 import { Navbar, Nav, NavItem, NavbarBrand, MenuItem, button, toggler, icon} from 'react-bootstrap';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+//import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 
 import logo from './images/givebu-logo.png';
@@ -22,50 +22,7 @@ class App extends Component {
   render() {
     return (
 
-        /*
-<HashRouter>
-    <div>
-        <ul className="topnav" id="myTopnav">
-            <a href="#contact">Profile</a>
-            <a href="#Volunteer">Volunteer</a>
-            <a href="#home">Home</a>
 
-        </ul>
-
-
-            <div className="content">
-                <Route exact path="/index" component={Home}/>
-                <Route path="/volunteer" component={Volunteer}/>
-                <Route path="/profile" component={Profile}/>
-            </div>
-    </div>
-
-  </HashRouter>
-*/
-
-
-/*
-        <HashRouter>
-            <div>
-                <ul className="topnav" id="myTopnav">
-                    <NavLink to="/"> <img src={logo} className="Home-App-logo" alt="logo"/> </NavLink>
-                    <Nav variant="pills" defaultActiveKey="/" className="nav-bar-items">
-                        <li><NavLink to="/">Home</NavLink></li>
-                        <li><NavLink to="/volunteer">Volunteer</NavLink></li>
-                        <li><NavLink to="/profile">Profile</NavLink></li>
-                    </Nav>
-                </ul>
-
-
-                <div className="content">
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/volunteer" component={Volunteer}/>
-                    <Route path="/profile" component={Profile}/>
-                </div>
-
-            </div>
-        </HashRouter>
-*/
 
 <HashRouter>
 
@@ -89,6 +46,7 @@ class App extends Component {
 
 
 </HashRouter>
+
 
 
 
