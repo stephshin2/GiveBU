@@ -37,7 +37,7 @@ class Volunteer extends Component {
     }
 
     componentDidMount(){
-        let url= "http://localhost:3001/posts"
+        let url= "http://localhost:3002/posts"
         fetch(url)
             .then(resp => resp.json())
             .then(data => {
@@ -61,6 +61,7 @@ class Volunteer extends Component {
 
     render() {
         return (
+
             <div>
 
                 {this.state.posts}
