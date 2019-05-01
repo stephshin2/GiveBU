@@ -53,33 +53,33 @@ class Home extends Component {
 
                 <div className="welcome-div">
                     <div className="layer">
-                        <Container>
-                            <Row>
-                                <Col>
-                                    <div className="welcome-message">
-                                        Welcome to GiveBU!
-                                    </div>
-                                </Col>
-                            </Row>
+                    <Container>
+                        <Row>
+                            <Col>
+                                <div className="welcome-message">
+                                    Welcome to GiveBU!
+                                </div>
+                            </Col>
+                        </Row>
 
-                            <Row>
-                                <Col>
-                                    <div className="description">
-                                        Find ways to give back to your community and collect rewards!
-                                    </div>
-                                </Col>
-                            </Row>
+                        <Row>
+                            <Col>
+                                <div className="description">
+                                    Find ways to give back to your community and collect rewards!
+                                </div>
+                            </Col>
+                        </Row>
 
-                            <div className="startButton">
-                                <Row>
-                                    <div>
-                                        <Button href="/#/volunteer" variant="primary" size="lg">
-                                            START NOW!
-                                        </Button>
-                                    </div>
-                                </Row>
-                            </div>
-                        </Container>
+                        <div className="startButton">
+                            <Row>
+                                <div>
+                                    <Button href="/#/volunteer" variant="primary" size="lg">
+                                        START NOW!
+                                    </Button>
+                                </div>
+                            </Row>
+                        </div>
+                    </Container>
                     </div>
                 </div>
 
@@ -88,7 +88,7 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <div className="header">
+                                <div className="Descriptionheader">
                                     <h2 align="middle">About Us</h2>
                                 </div>
                                 <div className="what-we-do-content">
@@ -107,8 +107,8 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <div className="header">
-                                    <h2 align='middle'>Meet the Team</h2>
+                                <div className="Aboutheader">
+                                   <h2 align='middle'>Meet the Team</h2>
                                 </div>
                             </Col>
                         </Row>
