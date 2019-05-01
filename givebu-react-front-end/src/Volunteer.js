@@ -1,5 +1,6 @@
 import React, { Component,} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col, Alert, Jumbotron, Badge } from 'reactstrap';
+import './Volunteer.css';
 
 class Volunteer extends Component {
     constructor(props) {
@@ -131,10 +132,10 @@ class Volunteer extends Component {
                     </Table>
                 </Jumbotron>
             </div>
+
         );
-
     }
-
 }
+
 
 export default Volunteer;

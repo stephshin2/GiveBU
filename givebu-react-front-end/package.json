@@ -2,14 +2,17 @@
   "name": "givebu-react-front-end",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
-    "json-server": "^0.14.2",
+    "axios": "^0.18.0",
+    "bootstrap": "^4.3.1",
     "mdbreact": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.6",
     "react-cookie": "^3.1.2",
     "react-cookies": "^0.1.0",
+    "react-data-fetching": "^0.2.4",
     "react-dom": "^16.8.6",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
@@ -20,8 +23,8 @@
   },
   "devDependencies": {
     "npm": "^6.9.0",
-    "yarn": "^1.13.0",
-    "react-scripts": "2.1.8"
+    "react-scripts": "^2.1.8",
+    "yarn": "^1.13.0"
   },
   "scripts": {
     "start": "react-scripts start",
