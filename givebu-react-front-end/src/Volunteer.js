@@ -8,7 +8,7 @@ class Volunteer extends Component {
             modal: false,
             nestedModal:false,
             closeAll: false,
-            posts:[]
+            events: []
         };
 
         this.toggle = this.toggle.bind(this);
@@ -36,301 +36,103 @@ class Volunteer extends Component {
         });
     }
 
-    componentDidMount(){
-        let url= "http://localhost:3002/posts"
-        fetch(url)
-            .then(resp => resp.json())
-            .then(data => {
-                let posts = data.map((post,index) => {
-                    return (
-                        <div key={index}>
-                            <p>{post.name}</p>
-                            <p>{post.contact}</p>
-                            <p>{post.email}</p>
-                            <p>{post.descr}</p>
-                            <p>{post.dates}</p>
-                            <p>{post.location}</p>
+    componentDidMount() {
+        var request = require("request");
 
-                        </div>
-                    )
-                })
-                this.setState({posts:posts});
-            })
+        var options = { method: 'GET',
+            url: 'http://localhost:3001/volunteer',
+            headers:
+                { json: true,
+                    'cache-control': 'no-cache',
+                    Connection: 'keep-alive',
+                    'accept-encoding': 'gzip, deflate',
+                    Host: 'localhost:3001',
+                    'Postman-Token': 'ad7ef7f9-d42c-422f-a78b-874e17baf6d9,42e9af57-bc9d-4b2d-b960-c29848a289d0',
+                    'Cache-Control': 'no-cache',
+                    Accept: '*/*',
+                    'User-Agent': 'PostmanRuntime/7.11.0' } };
+
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            console.log(body,"body")
+            console.log(typeof body,"body type")
+            var parsedbody = JSON.parse(body)
+
+            this.setState({events: parsedbody.data})
+        }.bind(this));
     }
 
 
     render() {
         return (
-
             <div>
-
-                {this.state.posts}
-
-            </div>
-
-
-            /*<div>
                 <Jumbotron fluid>
+                    <Row></Row>
+                    <Row></Row>
+                    <Row></Row>
+                    <Row></Row>
+                    <Row></Row>
+                    <Row></Row>
+                    <Row>
+                        VOLUNTEER NOW
+                    </Row>
+                    <Table>
+                        <thead>
+                        <tr>
+                            <th>Organization</th>
+                            <th>Description</th>
+                            <th>Register</th>
+                            <th>Dates</th>
+                            <th>Location</th>
+                            <th>Points</th>
+                        </tr>
+                        </thead>
 
-                    <Container>
-
-                        <Row>
-                            <h2 align="middle"> VOLUNTEER NOW </h2>
-                        </Row>
-
-
-                        <Table>
-                            <thead>
-                            <tr>
-                                <th>Organization</th>
-                                <th>Points</th>
-
-                            </tr>
-                            </thead>
-                            <tbody>
-
-
-                            <tr>
-                                <td>
-                                    <Container>
-                                        <Button color="danger" onClick={ this.toggle}>Aids Action Commitee</Button>
-                                        <Modal isOpen={this.state.modal} fade={false}
-                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
-                                        <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
-                                            <ModalHeader toggle={this.toggle}>Aids Action Commitee</ModalHeader>
-
-                                            <ModalBody>
-                                                <p>Since 1993, Check-In volunteers have provided information and referrals, along with a sensitive and caring ear, to AIDS Action Committee’s clients, helping to maintain a strong connection between clients and staff members.
-                                                    Volunteers complement our services by helping clients work through problems and encouraging successes over the phone. </p>
-
-                                                <div align="middle">
-                                                    <iframe width="400" height="300" id="gmap_canvas"
-                                                            src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe> </div>
-
-                                            </ModalBody>
-
-                                            <Button color="primary" onClick={this.toggleNested}>Invite Friends</Button>
-
-                                            <ModalFooter>
-                                                <Button color="success" onClick={this.toggle}>REGISTER</Button>{' '}
-                                                <Button color="danger" onClick={this.toggle}>EXPLORE OTHER EVENTS</Button>
-                                            </ModalFooter>
-                                        </Modal>
-                                    </Container>
-
-                                </td>
-
-                                <td>
-                                    <Button variant="primary">
-                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
-                                    </Button>
-
-                                </td>
-                            </tr>
-
+                        <tbody>
+                        {this.state.events.map((event) => (
                             <tr>
                                 <td>
-                                    <Container>
-                                        <Button color="light" onClick={ this.toggle}>All Hands and Hearts</Button>
-                                        <Modal isOpen={this.state.modal} fade={false}
-                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
-                                        <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
-                                            <ModalHeader toggle={this.toggle}>All Hands and Hearts</ModalHeader>
+                                    <Button color="danger" onClick={ this.toggle}>{event.name}</Button>
+                                    {/*<Modal isOpen={this.state.modal} fade={false}*/}
+                                    {/*toggle={this.toggle} style={{width: "200px", display: "block"}}>*/}
+                                    <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
+                                        <ModalHeader toggle={this.toggle}>{event.name}</ModalHeader>
 
-                                            <ModalBody>
-                                                <p>We are currently working around the world to help communities affected by natural disasters. As a volunteer, you'd be a critical part of rebuilding homes and schools for community members post-disaster. </p>
-                                                <p> Tuesday-Wednesday 12pm </p>
-                                                <div align="middle">
-                                                    <iframe width="400" height="300" id="gmap_canvas"
-                                                            src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe> </div>
-                                            </ModalBody>
-                                            <Button color="primary" onClick={this.toggleNested}>Invite Friends</Button>
-                                            <ModalFooter>
-                                                <Button color="success" onClick={this.toggle}>REGISTER</Button>{' '}
-                                                <Button color="danger" onClick={this.toggle}>EXPLORE OTHER EVENTS</Button>
-                                            </ModalFooter>
-                                        </Modal>
-                                    </Container>
+                                        <ModalBody>
+                                            <p>{event.descr}</p>
+                                            <p>{event.dates}</p>
+                                            <p>{event.location}</p>
+                                            <p>For more information, email {event.contact} at {event.email}.</p>
+
+                                            <div align="middle">
+                                                <iframe width="400" height="300" id="gmap_canvas"
+                                                        src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                                        frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe> </div>
+
+                                        </ModalBody>
+
+                                        <Button color="primary" onClick={this.toggleNested}>Invite Friends</Button>
+
+                                        <ModalFooter>
+                                            <Button color="success" onClick={this.toggle}>REGISTER</Button>{' '}
+                                            <Button color="danger" onClick={this.toggle}>EXPLORE OTHER EVENTS</Button>
+                                        </ModalFooter>
+                                    </Modal>
+
                                 </td>
-                                <td>
-                                    <Button variant="primary">
-                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
-                                    </Button>
-                                </td>
+                                <td>{event.descr}</td>
+                                <td><Button color="success" onClick={ this.toggle}>REGISTER</Button></td>
+                                <td>{event.dates}</td>
+                                <td>{event.location}</td>
+                                <td>{event.points}</td>
                             </tr>
-                            <tr>
-                                <td>
-                                    <Container>
-                                        <Button color="primary" onClick={ this.toggle}>Cradles to Crayons</Button>
-                                        <Modal isOpen={this.state.modal} fade={false}
-                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
-                                        <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
-                                            <ModalHeader toggle={this.toggle}>Cradles to Crayons</ModalHeader>
-                                            <ModalBody>
-                                                <p>The Champion Program is for students who would like to volunteer on a weekly or bi-weekly basis during one of our designated two and a half hour shifts . As a Champion, volunteers will be trained in at least one of our donation processing stations. Once a Champion is trained, they are responsible for leading the station with anywhere from 10-25 volunteers. For example, an Outfit Station Champion orients and oversees a group of volunteers as they put together outfit packs that contain about a week's worth of clothing. </p>
-
-                                                <Alert color="danger"> Monday-Wednesday 10am </Alert>
-
-                                                <div align="middle">
-                                                    <iframe width="400" height="300" id="gmap_canvas"
-                                                            src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe> </div>
-
-
-                                            </ModalBody>
-
-                                            <Button color="secondary" onClick={this.toggleNested}>Invite Friends</Button>
-
-                                            <ModalFooter>
-                                                <Button color="success" onClick={this.toggle}>REGISTER</Button>{' '}
-                                                <Button color="danger" onClick={this.toggle}>EXPLORE OTHER EVENTS</Button>
-                                            </ModalFooter>
-                                        </Modal>
-                                    </Container>
-                                </td>
-                                <td>
-                                    <Button variant="primary">
-                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
-                                    </Button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <Container>
-                                        <Button color="info" onClick={ this.toggle}>Art Resource Collaborative for Kids (ARCK)</Button>
-                                        <Modal isOpen={this.state.modal} fade={false}
-                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
-                                        <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
-                                            <ModalHeader toggle={this.toggle}>Art Resource Collaborative for Kids (ARCK)</ModalHeader>
-
-                                            <ModalBody>
-                                                <p></p>
-
-                                                <Alert color="danger"> Monday-Wednesday 10am </Alert>
-
-                                                <div align="middle">
-                                                    <iframe width="400" height="300" id="gmap_canvas"
-                                                            src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe> </div>
-
-
-                                            </ModalBody>
-
-                                            <Button color="dark" onClick={this.toggleNested}>Invite Friends</Button>
-
-                                            <ModalFooter>
-                                                <Button color="success" onClick={this.toggle}>REGISTER</Button>{' '}
-                                                <Button color="danger" onClick={this.toggle}>EXPLORE OTHER EVENTS</Button>
-                                            </ModalFooter>
-                                        </Modal>
-                                    </Container>
-                                </td>
-                                <td>
-                                    <Button variant="primary">
-                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
-                                    </Button>
-                                </td>
-
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    <Container>
-                                        <Button color="danger" onClick={ this.toggle}>Artists for Humanity</Button>
-                                        <Modal isOpen={this.state.modal} fade={false}
-                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
-                                        <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
-                                            <ModalHeader toggle={this.toggle}>Artists for Humanity</ModalHeader>
-
-                                            <ModalBody>
-                                                <p>The best way to volunteer with Artists For Humanity is to come visit our studios, meet our young people, and talk with us about how you can become involved. Volunteers spread the word about what our teens can do, promote our art work, refer young people who could benefit from working with us, work on special projects and/or provide 1:1 tutoring to teens. Tutoring is one of the key ways to get involved. As an after-work supplemental program, tutoring provides critical support to AFH teen artists to ensure a stronger pathway toward academic success. </p>
-
-                                                <Alert color="danger"> Monday-Wednesday 10am </Alert>
-
-                                                <div align="middle">
-                                                    <iframe width="400" height="300" id="gmap_canvas"
-                                                            src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe> </div>
-
-
-                                            </ModalBody>
-
-                                            <Button color="primary" onClick={this.toggleNested}>Invite Friends</Button>
-
-                                            <ModalFooter>
-                                                <Button color="success" onClick={this.toggle}>REGISTER</Button>{' '}
-                                                <Button color="danger" onClick={this.toggle}>EXPLORE OTHER EVENTS</Button>
-                                            </ModalFooter>
-                                        </Modal>
-                                    </Container>
-                                </td>
-                                <td>
-                                    <Button variant="primary">
-                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
-                                    </Button>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td>
-                                    <Container>
-                                        <Button color="warning" onClick={ this.toggle}>Bilingual Education for Central America</Button>
-                                        <Modal isOpen={this.state.modal} fade={false}
-                                        toggle={this.toggle} style={{width: "200px", display: "block"}}>
-                                        <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
-                                            <ModalHeader toggle={this.toggle}>Bilingual Education for Central America</ModalHeader>
-
-                                            <ModalBody>
-                                                <p>Since 1993, Check-In volunteers have provided information and referrals, along with a sensitive and caring ear, to AIDS Action Committee’s clients, helping to maintain a strong connection between clients and staff members.
-                                                    Volunteers complement our services by helping clients work through problems and encouraging successes over the phone. </p>
-
-                                                <Alert color="danger"> Monday-Friday 2-4pm </Alert>
-
-                                                <div align="middle">
-                                                    <iframe width="400" height="300" id="gmap_canvas"
-                                                            src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe> </div>
-
-
-                                            </ModalBody>
-
-                                            <Button color="success" onClick={this.toggleNested}>Invite Friends</Button>
-
-                                            <ModalFooter>
-                                                <Button color="success" onClick={this.toggle}>REGISTER</Button>{' '}
-                                                <Button color="danger" onClick={this.toggle}>EXPLORE OTHER EVENTS</Button>
-                                            </ModalFooter>
-                                        </Modal>
-                                    </Container>
-                                </td>
-                                <td>BCYF Centers across Boston</td>
-                                <td>Saturdays 9-12</td>
-                                <td>
-                                    <Button variant="primary">
-                                        <Badge variant="dark"><a href="http://localhost:3000/profile#/profile">100</a></Badge>
-                                    </Button>
-                                </td>
-
-                            </tr>
-
-
-                            </tbody>
-                        </Table>
-                    </Container>
-
-
-
+                        ))}
+                        </tbody>
+                    </Table>
                 </Jumbotron>
-
-
-
-            </div>*/
-
+            </div>
         );
+
     }
 
 }
