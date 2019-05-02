@@ -171,7 +171,7 @@ class Profile extends Component {
                         <Form onSubmit={this.onSubmit}>
 
                             <FormGroup>
-                                <img className='login-logo' src={buLogin_Photo}/>
+                                <img className='login-logo' src={buLogin_Photo} />
                             </FormGroup>
 
                             <div style={incorrectLogin}>
