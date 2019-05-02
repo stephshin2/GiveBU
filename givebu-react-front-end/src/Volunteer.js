@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col, Alert, Jumbotron, Badge} from 'reactstrap';
 import './Volunteer.css';
-import PropTypes from 'prop-types';
+import './Profile.js';
 
 class Volunteer extends Component {
     constructor(props) {
@@ -38,6 +38,19 @@ class Volunteer extends Component {
             closeAll: true
         });
     }
+
+    register(event) {
+        let user = undefined;
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:3001/register/'+event.toString()+'/'+user
+        }
+
+        request(options, function(error,response,body) {
+            console.log(body);
+        }.bind(this));
+    }
+
 
     componentDidMount() {
         var request = require("request");

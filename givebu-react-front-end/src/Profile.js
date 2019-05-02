@@ -61,6 +61,7 @@ class Profile extends Component {
         this.setState({hideProfile: false});
     }
 
+
     incorrectLogin() {
         this.setState({incorrectLogin: true});
     }
@@ -107,8 +108,6 @@ class Profile extends Component {
             this.setState({loading : false});
 
             if (error) throw new Error(error);
-            // cookie.save('username', username);
-
             cookies.set('username', username);
 
             console.log("cooooookie", cookies.get('username'));
@@ -118,6 +117,7 @@ class Profile extends Component {
 
             if (body === "SUCCESS") {
                 this.setState({userId: username});
+                this.checkUser(username);
                 this.handleLogin();
             }
             else {
@@ -128,6 +128,35 @@ class Profile extends Component {
         }.bind(this));
 
     }
+
+
+    checkUser(username) {
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:3001/users/'+username
+        };
+
+        request(options, function(error, response,body) {
+            console.log(body);
+            console.log(body.length);
+            if (body.length === 2) {
+                this.saveUser(username);
+            }
+        }.bind(this));
+    }
+
+    saveUser(username) {
+        console.log(username);
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:3001/users/'+username
+        };
+
+        request(options, function(error, response, body) {
+            console.log(body);
+        }.bind(this));
+    }
+
 
     logOut() {
         cookies.remove('username');
@@ -158,7 +187,7 @@ class Profile extends Component {
 
                     <div>
 
-                        <Form>
+                        <Form onSubmit={this.onSubmit}>
 
                             <FormGroup>
                                 <img className='login-logo' src={bu_weblogin_Photo}/>
