@@ -21,6 +21,8 @@ import stephPhoto from './images/steph_profile.jpg';
 import insta from './images/instagram.png';
 import mail from './images/mail.png';
 
+import { cookies } from './App.js';
+
 class Home extends Component {
 
 
@@ -43,6 +45,7 @@ class Home extends Component {
 
 
     render() {
+
         const style = this.state.hovering ? {} : {}
 
         const handleMouseEnter = () => this.setState({hovering : true});
