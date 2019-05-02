@@ -25,6 +25,7 @@ class Profile extends Component {
         this.state = {
             username: cookies.get('username'),
             password: undefined,
+            events: [],
 
             loading: true,
 
@@ -52,6 +53,9 @@ class Profile extends Component {
         this.toggleAll = this.toggleAll.bind(this);
 
         this.logOut = this.logOut.bind(this);
+
+        this.userEvents = this.userEvents.bind(this); 
+        this.deleteEvents = this.deleteEvents.bind(this);
 
     }
 
@@ -167,6 +171,83 @@ class Profile extends Component {
         this.setState({loggedOut: true})
     }
 
+    userEvents() {
+
+        console.log("fetching event ids for user");
+
+        var request = require("request");
+
+        var options = { method: 'GET',
+          url: 'http://localhost:3001/register/'+cookies.get('username'),
+          headers: 
+           { 'cache-control': 'no-cache',
+             Connection: 'keep-alive',
+             'accept-encoding': 'gzip, deflate',
+             Host: 'localhost:3001',
+             'Postman-Token': 'a2d47e23-3832-4b2c-9ade-3c5be9bbde49,c0467497-cd82-46b0-98c2-fd0215f8d9d7',
+             'Cache-Control': 'no-cache',
+             Accept: '*/*',
+             'User-Agent': 'PostmanRuntime/7.11.0' } };
+
+        request(options, function(error, response, body) {
+            if (error) throw new Error(error);
+            console.log(body, "body")
+            console.log(typeof body, "body type")
+            var parsedbody = JSON.parse(body)
+            console.log(typeof parsedbody, "parsed body type");
+            console.log(parsedbody.data); 
+            console.log(parsedbody.data.length === 0);
+            if (parsedbody.data.length !== 0) {
+
+                console.log(parsedbody.data[0].event_id, "event id");
+                var event_id = parsedbody.data[0].event_id;
+
+                this.getEvent(event_id);
+            }
+
+            
+
+        }.bind(this));
+
+    }
+
+    getEvent(event_id) {
+        var options = { 
+            method: 'GET', 
+            url: 'http://localhost:3001/volunteer/' + event_id,
+        };
+        request(options, function(error, response, body) {
+            console.log(event_id, "HOPE THIS WORKS"); 
+            if (error) throw new Error(error); 
+            console.log(body, "body"); 
+            var parsedbody = JSON.parse(body)
+            this.setState({
+                events: parsedbody[0]
+            })
+            console.log(this.state.events);
+        }.bind(this));
+    }
+
+    deleteEvents() {
+        this.setState({
+            events: []
+        })
+        console.log("deleting events");
+
+        var options = {
+            method: 'GET', 
+            url: 'http://localhost:3001/volunteer/delete/' + this.state.events.id + '/' + cookies.get('username'),
+        }; 
+        request(options, function(error, response, body) {
+            console.log(body); 
+        }) 
+    }
+
+    componentWillMount() {
+        this.userEvents(); 
+
+    }
+
     render() {
 
         const loading = this.state.loading ? {} : {display: 'none'};
@@ -175,6 +256,13 @@ class Profile extends Component {
         const incorrectLogin = this.state.incorrectLogin ? {} : {display: 'none'};
         const loggedOut = this.state.loggedOut ? {} : {display: 'none'};
 
+        const noEvents = this.state.events.length === 0 ? {} : {display: 'none'};
+        const someEvents = this.state.events.length === 0 ? {display: 'none'} : {}; 
+
+        console.log(noEvents, "NO EVENTS"); 
+        console.log(someEvents, "SOME EVENTS")
+
+        console.log(this.state.events);
 
         return (
 
@@ -243,6 +331,7 @@ class Profile extends Component {
                                 Let's get volunteering, {this.state.username}!
                             </h2>
                         </Row>
+
                         <Row>
                             <Col lg={6}>
                                 <Jumbotron fluid>
@@ -252,39 +341,58 @@ class Profile extends Component {
                                                 YOUR VOLUNTEERING EVENTS
                                             </h4>
                                         </Row>
-                                        <Table>
-                                            <thead>
-                                            <tr>
-                                                <th>Event</th>
-                                                <th>Date</th>
-                                                <th>Points</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr>
-                                                <td>
-                                                    <Button color="danger" onClick={this.toggle}>Aids Action Committee</Button>
-                                                    <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle}>
-                                                        <ModalHeader toggle={this.toggle}>Aids Action Committee</ModalHeader>
-                                                        <ModalBody>
-                                                            <p>Since 1993, Check-In volunteers have provided information and referrals, along with a sensitive and caring ear, to AIDS Action Committee’s clients, helping to maintain a strong connection between clients and staff members.
-                                                                Volunteers complement our services by helping clients work through problems and encouraging successes over the phone. </p>
-                                                            <div align="middle">
-                                                                <iframe width="400" height="300" id="gmap_canvas"
-                                                                        src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                                                                        frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe> </div>
-                                                        </ModalBody>
-                                                        <Button color="primary" onClick={this.toggleNested}>Invite Friends</Button>
-                                                        <ModalFooter>
-                                                            <Button color="danger" onClick={this.toggle}>SEE YOUR OTHER EVENTS</Button>
-                                                        </ModalFooter>
-                                                    </Modal>
-                                                </td>
-                                                <td>5/2/19</td>
-                                                <td>100</td>
-                                            </tr>
-                                            </tbody>
-                                        </Table>
+
+                                        <div style={noEvents}>
+                                            <h4> You have no events... </h4>
+                                           <Button href="/#/volunteer" color="danger">GET EVENTS</Button>
+                                        </div>
+
+
+
+                                        <div  style={someEvents}>
+
+                                            <Table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Event</th>
+                                                    <th>Date</th>
+                                                    <th>Points</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <Button color="danger" onClick={this.toggle}> {this.state.events.name} </Button>
+                                                        <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle}>
+                                                            <ModalHeader toggle={this.toggle}> {this.state.events.name} </ModalHeader>
+                                                            <ModalBody>
+                                                                <p>
+                                                                {this.state.events.descr}
+                                                                </p>
+                                                                <div align="middle">
+                                                                    <iframe width="400" height="300" id="gmap_canvas"
+                                                                            src="https://maps.google.com/maps?q=boston%20of%university&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                                                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe> </div>
+                                                            </ModalBody>
+                                                            <Button color="primary" onClick={this.toggleNested}>Invite Friends</Button>
+                                                            <ModalFooter>
+                                                                <Button color="danger" onClick={this.toggle}>SEE YOUR OTHER EVENTS</Button>
+                                                            </ModalFooter>
+                                                        </Modal>
+                                                    </td>
+                                                    <td> {this.state.events.dates} </td>
+                                                    <td> {this.state.events.points} </td>
+                                                </tr>
+                                                </tbody>
+                                            </Table>
+
+                                            <div>
+                                                <Button onClick={this.deleteEvents}> Delete Events </Button>
+                                            </div>
+
+                                        </div>
+
+
                                     </Container>
                                 </Jumbotron>
                             </Col>
@@ -313,7 +421,6 @@ class Profile extends Component {
                         </Row>
 
                         <Row>
-
                             <Button color="danger" onClick={this.logOut}>LOG OUT </Button>
                         </Row>
 
