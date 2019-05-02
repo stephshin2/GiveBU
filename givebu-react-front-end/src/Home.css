@@ -59,8 +59,18 @@ p{
 
 }
 
+.who-we-are{
+    padding-bottom: 5%;
+}
+
+
 .header {
     padding: 0px;
+}
+
+.descriptionheader h2{
+    text-align:center;
+    padding-top:0px;
 }
 
 
@@ -120,19 +130,37 @@ h2{
     width: 50%;
 }
 
-@media (max-width: 768px) {
-    .welcome-message {
-        font-size: 100px;
-        line-height: 100px;
 
+
+
+footer{
+    padding-bottom: 5%;
+}
+@media (max-width: 991px) {
+    .welcome-message {
+        font-size: 75px;
+        line-height: 100px;
 
     }
+
+
+
+
 }
 
-@media (max-width: 616px) {
+
+@media (max-width: 375px) {
     .welcome-message {
-        font-size: 100px;
-        line-height: 100px;
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    .what-we-do-content  {
+        text-align: center;
+        margin-left: 0px;
+        margin-right: 0px;
+        width: 100%;
+
     }
 }
 

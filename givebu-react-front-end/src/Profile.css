@@ -84,13 +84,35 @@ body {
 }
 
 
+h2{
+   justify-content: center;
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
 
 
+.formsbtn{
+    justify-content: center;
+}
 
 
+.text-center {
+    width: 70%;
+}
+
+.text-center p{
+    font-size: 1em;
+}
+
+.leader-btn{
+    padding-top: 5%;
+    padding-bottom: 10%;
+}
 
 
-
+.logout-btn{
+    padding-bottom:5%;
+}
 
 
 /*.redeem-btn {*/

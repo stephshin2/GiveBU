@@ -309,13 +309,69 @@ class Profile extends Component {
                                     </Container>
                                 </Jumbotron>
                             </Col>
+
+
+                            <Col lg={6}>
+                                <Jumbotron fluid>
+                                    <Container>
+                                        <Row>
+                                            <h4 className="profile-headers">
+                                                 BEFORE YOU GO
+                                            </h4>
+                                        </Row>
+                                        <Row>
+                                            <div className="text-center">
+                                                <p>All students who volunteer with programs that work with minors and other vulnerable populations must be compliant in two processes within the last three years</p>
+                                            </div>
+                                        </Row>
+                                        <Row>
+                                            <div className="forms-btn">
+
+                                                <a href="https://www.bu.edu/csc/about/cori-forms/" className="btn btn-success" role="button">GO TO FORMS</a>
+
+                                            </div>
+                                        </Row>
+
+                                    </Container>
+                                </Jumbotron>
+                            </Col>
+
+
+                            <Col lg={6}>
+                                <Jumbotron fluid>
+                                    <Container>
+                                        <Row>
+                                            <h4 className="profile-headers">
+                                                LEADER BOARD
+                                            </h4>
+                                        </Row>
+                                        <Row>
+                                            <div className="text-center">
+                                                <p>See the users with the most points! </p>
+                                            </div>
+                                        </Row>
+                                        <Row>
+                                            <div className="leader-btn">
+
+                                                <a href="#" className="btn btn-success" role="button">LEADER BOARD</a>
+                                            </div>
+                                        </Row>
+
+                                    </Container>
+                                </Jumbotron>
+                            </Col>
+
+
+
+
                         </Row>
 
+                        <div className="logout-btn">
                         <Row>
 
                             <Button color="danger" onClick={this.logOut}>LOG OUT </Button>
                         </Row>
-
+                        </div>
                     </Container>
                 </div>
             </div>
