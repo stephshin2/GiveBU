@@ -84,6 +84,20 @@ app.get('/volunteer/:id', function (req, res) {
   });
 });
 
+// delete an event from a user 
+app.get('/volunteer/delete/:id/:username', function (req, res) {
+  let event_id = req.params.id;
+  let username = req.params.username; 
+  if(!event_id) {
+    return res.status(400).send({ error: true, message: 'Please provide event_id'});
+  }
+  dbConn.query('DELETE FROM user_events WHERE event_id=? AND user = ?', [event_id, username], function(error, results, fields) {
+    if (error) throw error;
+    return res.send("deleted");
+  });
+});
+
+
 app.get('/users', function(req, res) {
   dbConn.query('SELECT * FROM user', function(error, results, fields) {
     if (error) throw error;
@@ -129,10 +143,10 @@ app.get('/register', (req,res) => {
 });
 
 app.get('/register/:username', (req,res) => {
-  let username = req.params.usernam;
+  let username = req.params.username;
   dbConn.query('SELECT * FROM user_events WHERE user = ?', username, (error, results,fields) => {
     if(error) throw error;
-    return res.send(results);
+    return res.send({data: results});
   })
 });
 
