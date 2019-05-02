@@ -355,7 +355,7 @@ class Profile extends Component {
                                                 <thead>
                                                 <tr>
                                                     <th>Event</th>
-                                                    <th>Date</th>
+                                                    {/* <th>Date</th> */}
                                                     <th>Points</th>
                                                 </tr>
                                                 </thead>
@@ -380,7 +380,7 @@ class Profile extends Component {
                                                             </ModalFooter>
                                                         </Modal>
                                                     </td>
-                                                    <td> {this.state.events.dates} </td>
+                                                    {/* <td> {this.state.events.dates} </td> */ }
                                                     <td> {this.state.events.points} </td>
                                                 </tr>
                                                 </tbody>
@@ -419,7 +419,7 @@ class Profile extends Component {
                                 </Jumbotron>
                             </Col>
 
-
+                        
                             <Col lg={6}>
                                 <Jumbotron fluid>
                                     <Container>
@@ -469,8 +469,7 @@ class Profile extends Component {
                                     </Container>
                                 </Jumbotron>
                             </Col>
-
-
+                            
 
 
                         </Row>
