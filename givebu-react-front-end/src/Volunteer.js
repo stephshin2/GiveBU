@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col, Alert, Jumbotron, Badge} from 'reactstrap';
 import './Volunteer.css';
-import './Profile.js';
+import Profile from './Profile.js';
 
 import { cookies } from './App.js';
 
@@ -42,15 +42,17 @@ class Volunteer extends Component {
     }
 
     register(event) {
-        // let user = undefined;
-        // const options = {
-        //     method: 'POST',
-        //     url: 'http://localhost:3001/register/'+event.toString()+'/'+user
-        // };
-        //
-        // request(options, function(error,response,body) {
-        //     console.log(body);
-        // }.bind(this));
+        var request = require("request");
+        let user = cookies.get('username');
+        console.log(user);
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:3001/register/'+event.toString()+'/'+user
+        };
+        
+        request(options, function(error,response,body) {
+             console.log(body);
+        }.bind(this));
     }
 
 
@@ -80,9 +82,6 @@ class Volunteer extends Component {
         }.bind(this));
     }
 
-    register() {
-        console.log("registering");
-    }
 
 
     render() {
@@ -142,7 +141,7 @@ class Volunteer extends Component {
 
                                 </td>
                                 <td>{event.descr}</td>
-                                <td><Button color="success" onClick={ this.register}>JOIN NOW</Button></td>
+                                <td><Button href="/#/profile" color="success" onClick={ this.register(event.id)}>JOIN NOW</Button></td>
                                 <td>{event.dates}</td>
                                 <td>{event.location}</td>
                                 <td>{event.points}</td>

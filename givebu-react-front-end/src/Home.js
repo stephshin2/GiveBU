@@ -93,7 +93,7 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <div className="Descriptionheader">
+                                <div className="descriptionheader">
                                     <h2 align="middle">About Us</h2>
                                 </div>
                                 <div className="what-we-do-content">
@@ -112,7 +112,7 @@ class Home extends Component {
                     <Container>
                         <Row>
                             <Col>
-                                <div className="Aboutheader">
+                                <div className="aboutheader">
                                    <h2 align='middle'>Meet the Team</h2>
                                 </div>
                             </Col>
