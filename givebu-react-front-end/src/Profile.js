@@ -1,6 +1,6 @@
 import request from 'request';
 import React, { Component,} from 'react';
-import cookie from 'react-cookies'
+import cookie from 'react-cookies';
 
 import buLogin_Photo from './images/buLogin.png';
 
@@ -50,6 +50,7 @@ class Profile extends Component {
         this.setState({hideLogin: true});
         this.setState({hideProfile: false});
     }
+
 
     incorrectLogin() {
         this.setState({incorrectLogin: true});
@@ -107,6 +108,7 @@ class Profile extends Component {
 
 
             if (body === "SUCCESS") {
+                this.checkUser(username);
                 this.handleLogin();
             }
             else {
@@ -117,6 +119,35 @@ class Profile extends Component {
         }.bind(this));
 
     }
+
+
+    checkUser(username) {
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:3001/users/'+username
+        };
+
+        request(options, function(error, response,body) {
+            console.log(body);
+            console.log(body.length);
+            if (body.length === 2) {
+                this.saveUser(username);
+            }
+        }.bind(this)); 
+    }
+
+    saveUser(username) {
+        console.log(username);
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:3001/users/'+username
+        };
+
+        request(options, function(error, response, body) {
+            console.log(body);
+        }.bind(this));
+    }
+
 
     render() {
 
@@ -137,7 +168,7 @@ class Profile extends Component {
 
                     <div>
 
-                        <Form>
+                        <Form onSubmit={this.onSubmit}>
 
                             <FormGroup>
                                 <img className='login-logo' src={buLogin_Photo}/>

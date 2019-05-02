@@ -1,6 +1,7 @@
 import React, { Component,} from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col, Alert, Jumbotron } from 'reactstrap';
 import './Volunteer.css';
+import './Profile.js';
 
 class Volunteer extends Component {
     constructor(props) {
@@ -31,23 +32,56 @@ class Volunteer extends Component {
             closeAll: true
         });
     }
+
+    register(event) {
+        let user = undefined;
+        const options = {
+            method: 'POST',
+            url: 'http://localhost:3001/register/'+event.toString()+'/'+user
+        }
+
+        request(options, function(error,response,body) {
+            console.log(body);
+        }.bind(this));
+    }
    
 
     componentDidMount() {
-        fetch('http://localhost:3002/events')
-        .then(res => res.json())
-        .then((data) => {
-            this.setState({events: data})
-            console.log(this.state.events)
-        })
-        .catch (console.log)
+        var request = require("request");
+
+        var options = { method: 'GET',
+        url: 'http://localhost:3001/volunteer',
+        headers: 
+           { json: true,
+            'cache-control': 'no-cache',
+             Connection: 'keep-alive',
+             'accept-encoding': 'gzip, deflate',
+             Host: 'localhost:3001',
+             'Postman-Token': 'ad7ef7f9-d42c-422f-a78b-874e17baf6d9,42e9af57-bc9d-4b2d-b960-c29848a289d0',
+             'Cache-Control': 'no-cache',
+             Accept: '*/*',
+             'User-Agent': 'PostmanRuntime/7.11.0' } };
+
+        request(options, function (error, response, body) {
+          if (error) throw new Error(error);
+          console.log(body,"body")
+          console.log(typeof body,"body type")
+          var parsedbody = JSON.parse(body)
+
+          this.setState({events: parsedbody.data})
+        }.bind(this));
     }
 
     render() {
         return (
             <div>
             <Jumbotron fluid>
-            <Container>
+                <Row></Row>
+                <Row></Row>
+                <Row></Row>
+                <Row></Row>
+                <Row></Row>
+                <Row></Row>
                 <Row>
                     VOLUNTEER NOW
                 </Row>
@@ -55,11 +89,11 @@ class Volunteer extends Component {
                 <thead>
                 <tr>
                     <th>Organization</th>
+                    <th>Description</th>
                     <th>Register</th>
                     <th>Dates</th>
                     <th>Location</th>
                     <th>Points</th>
-                    <th></th>
                 </tr>
                 </thead>
 
@@ -67,7 +101,6 @@ class Volunteer extends Component {
                     {this.state.events.map((event) => (
                         <tr>
                             <td>
-                                <Container>
                                     <Button color="danger" onClick={ this.toggle}>{event.name}</Button>
                                     {/*<Modal isOpen={this.state.modal} fade={false}*/}
                                     {/*toggle={this.toggle} style={{width: "200px", display: "block"}}>*/}
@@ -94,11 +127,10 @@ class Volunteer extends Component {
                                             <Button color="danger" onClick={this.toggle}>EXPLORE OTHER EVENTS</Button>
                                         </ModalFooter>
                                     </Modal>
-                                </Container>
 
                             </td>
-
-                            <td> <Button color="success" onClick={ this.toggle}>REGISTER</Button> </td>
+                            <td>{event.descr}</td>
+                            <td><Button color="success" onClick={() => this.register( event.id )}>REGISTER</Button></td>
                             <td>{event.dates}</td>
                             <td>{event.location}</td>
                             <td>{event.points}</td>
@@ -106,7 +138,6 @@ class Volunteer extends Component {
                     ))}
                 </tbody>
             </Table>
-            </Container>
             </Jumbotron>
             </div>
         );
