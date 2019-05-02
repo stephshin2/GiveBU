@@ -156,6 +156,16 @@ app.delete('/register/:username', (req,res) => {
 });
 
 
+// get points from database
+app.get('/points/:username', (req,res) => {
+    let username = req.params.username;
+    dbConn.query('SELECT points FROM user WHERE username = ?', username, (error, results, fields) => {
+        if(error) throw error;
+        return res.send(results);
+    })
+});
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
