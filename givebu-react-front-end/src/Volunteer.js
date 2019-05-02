@@ -3,6 +3,8 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, N
 import './Volunteer.css';
 import Profile from './Profile.js';
 
+import { cookies } from './App.js';
+
 class Volunteer extends Component {
     constructor(props) {
         super(props);
