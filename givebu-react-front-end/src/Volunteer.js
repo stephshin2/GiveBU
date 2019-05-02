@@ -40,15 +40,15 @@ class Volunteer extends Component {
     }
 
     register(event) {
-        let user = undefined;
-        const options = {
-            method: 'POST',
-            url: 'http://localhost:3001/register/'+event.toString()+'/'+user
-        }
-
-        request(options, function(error,response,body) {
-            console.log(body);
-        }.bind(this));
+        // let user = undefined;
+        // const options = {
+        //     method: 'POST',
+        //     url: 'http://localhost:3001/register/'+event.toString()+'/'+user
+        // };
+        //
+        // request(options, function(error,response,body) {
+        //     console.log(body);
+        // }.bind(this));
     }
 
 
