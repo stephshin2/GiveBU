@@ -142,7 +142,7 @@ class Volunteer extends Component {
 
                                 </td>
                                 <td>{event.descr}</td>
-                                <td><Button color="success" onClick={ this.register}>REGISTER</Button></td>
+                                <td><Button color="success" onClick={ this.register}>JOIN NOW</Button></td>
                                 <td>{event.dates}</td>
                                 <td>{event.location}</td>
                                 <td>{event.points}</td>
