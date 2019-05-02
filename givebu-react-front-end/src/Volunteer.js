@@ -1,10 +1,12 @@
-import React, { Component,} from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col, Alert, Jumbotron, Badge } from 'reactstrap';
+import React, { Component } from 'react';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Container, Table, Nav, Row, Col, Alert, Jumbotron, Badge} from 'reactstrap';
 import './Volunteer.css';
+import PropTypes from 'prop-types';
 
 class Volunteer extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             modal: false,
             nestedModal:false,
@@ -15,7 +17,7 @@ class Volunteer extends Component {
         this.toggle = this.toggle.bind(this);
         this.toggleNested = this.toggleNested.bind(this);
         this.toggleAll = this.toggleAll.bind(this);
-
+        this.register = this.register.bind(this);
 
     };
 
@@ -63,20 +65,23 @@ class Volunteer extends Component {
         }.bind(this));
     }
 
+    register() {
+        console.log("registering");
+    }
+
 
     render() {
+
         return (
             <div>
-                <Jumbotron fluid>
-                    <Row></Row>
-                    <Row></Row>
-                    <Row></Row>
-                    <Row></Row>
-                    <Row></Row>
-                    <Row></Row>
+                <Jumbotron className="volunteer-page">
+                    {/*<Container>*/}
                     <Row>
-                        VOLUNTEER NOW
+                        <h4 className="volunteer-header">
+                            VOLUNTEER NOW
+                        </h4>
                     </Row>
+
                     <Table>
                         <thead>
                         <tr>
@@ -122,7 +127,7 @@ class Volunteer extends Component {
 
                                 </td>
                                 <td>{event.descr}</td>
-                                <td><Button color="success" onClick={ this.toggle}>REGISTER</Button></td>
+                                <td><Button color="success" onClick={ this.register}>REGISTER</Button></td>
                                 <td>{event.dates}</td>
                                 <td>{event.location}</td>
                                 <td>{event.points}</td>
@@ -130,6 +135,7 @@ class Volunteer extends Component {
                         ))}
                         </tbody>
                     </Table>
+                    {/*</Container>*/}
                 </Jumbotron>
             </div>
 

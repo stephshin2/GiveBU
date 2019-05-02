@@ -105,12 +105,16 @@ app.get('/users/:id', function (req, res) {
 });
 
 // Add a new user to databse
-app.post('/users', (req,res) => {
-  dbConn.query('INSERT INTO user SET ?', request.body, (error, result) => {
-    if (error) throw error;
-    return res.send('User ${result.username} added with ID: ${result.user_id');
-  });
+app.post('/users/insert/:username', (req,res) => {
+    let username = req.params.username;
+
+    dbConn.query('INSERT INTO user(username) VALUES (?)', username, function(error, results, fields) {
+        if (error) throw error;
+        return res.send('User ${result.username} added with ID: ${result.user_id');
+    });
 });
+
+
 
 // Update an existing user in database
 app.put('/users/:id', (req, res) => {

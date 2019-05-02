@@ -72,11 +72,13 @@ class Home extends Component {
 
                         <div className="startButton">
                             <Row>
-                                <div>
-                                    <Button href="/#/volunteer" variant="primary" size="lg">
-                                        START NOW!
-                                    </Button>
-                                </div>
+                                <Col>
+                                    <div>
+                                        <Button href="/#/volunteer" variant="primary" size="lg">
+                                            START NOW!
+                                        </Button>
+                                    </div>
+                                </Col>
                             </Row>
                         </div>
                     </Container>
