@@ -141,7 +141,7 @@ class Volunteer extends Component {
 
                                 </td>
                                 <td>{event.descr}</td>
-                                <td><Button href="/#/profile" color="success" onClick={() => this.register(event.id)}>REGISTER</Button></td>
+                                <td><Button href="/#/profile" color="success" onClick={ this.register(event.id)}>JOIN NOW</Button></td>
                                 <td>{event.dates}</td>
                                 <td>{event.location}</td>
                                 <td>{event.points}</td>

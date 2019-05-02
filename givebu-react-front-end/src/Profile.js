@@ -6,6 +6,7 @@ import Cookies from 'universal-cookie';
 import bu_weblogin_Photo from './images/bu_weblogin.png';
 
 import heartbeat from './images/heartbeat.gif';
+import coupon from './images/coupon.png';
 
 import {Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter, Table, Jumbotron, Progress} from 'reactstrap';
 
@@ -39,8 +40,12 @@ class Profile extends Component {
             nestedModal:false,
             closeAll: false,
 
-            // TODO: attach this to backend so that button is enabled
-            canRedeem: false
+            canRedeem: false,
+
+            points: 0,
+            pointsToRedeem: 0,
+
+            couponRedeemed: false
 
         };
 
@@ -54,8 +59,11 @@ class Profile extends Component {
 
         this.logOut = this.logOut.bind(this);
 
+        this.redeem = this.redeem.bind(this);
+
         this.userEvents = this.userEvents.bind(this); 
         this.deleteEvents = this.deleteEvents.bind(this);
+
 
     }
 
@@ -70,13 +78,34 @@ class Profile extends Component {
         this.setState({incorrectLogin: true});
     }
 
-
     componentDidMount() {
         this.setState({loading : false});
+
+        const options = {
+            method: 'GET',
+            url: 'http://localhost:3001/points/' + cookies.get('username'),
+        };
+
+        request(options, function (error, response, body) {
+            if (error) throw new Error(error);
+            console.log(body, "checking points body");
+            var parsedbody = JSON.parse(body);
+            var points = parsedbody[0].points;
+            this.setState({points: points});
+            this.setState({pointsToRedeem: 500-points});
+
+            if (this.state.pointsToRedeem === 0) {
+                this.setState({canRedeem: true});
+            }
+
+
+        }.bind(this));
     }
 
     toggle() {
-        this.setState({modal: !this.state.modal});
+        this.setState({
+            modal: !this.state.modal
+        });
     }
 
     toggleNested() {
@@ -94,7 +123,12 @@ class Profile extends Component {
     }
 
     redeem() {
-        // TODO: redeem should link somewhere?
+        this.setState({
+            couponRedeemed: true,
+            canRedeem: false,
+            points: 0
+        });
+        
     }
 
     loginUser(username, password){
@@ -256,6 +290,11 @@ class Profile extends Component {
         const incorrectLogin = this.state.incorrectLogin ? {} : {display: 'none'};
         const loggedOut = this.state.loggedOut ? {} : {display: 'none'};
 
+        const canRedeem = this.state.canRedeem ? {} : {display: 'none'};
+        const cannotRedeem = this.state.canRedeem ? {display: 'none'} : {};
+        const couponRedeemed = this.state.couponRedeemed ? {display: 'none'} : {};
+        const couponNotRedeemed = this.state.couponRedeemed ? {} : {display: 'none'};
+
         const noEvents = this.state.events.length === 0 ? {} : {display: 'none'};
         const someEvents = this.state.events.length === 0 ? {display: 'none'} : {}; 
 
@@ -405,13 +444,29 @@ class Profile extends Component {
                                             </h4>
                                         </Row>
                                         <Row>
-                                            <div className="text-center point-header">400 points until free Dunkin!</div>
-                                            <Progress animated color="success" value="100" max="500">100</Progress>
+                                            <div style={cannotRedeem} className="text-center point-header">{this.state.pointsToRedeem} points until free Starbucks!</div>
+                                            <div style={canRedeem} className="text-center point-header">Get your FREE Starbucks!</div>
+
+                                            <Progress animated color="success" value={this.state.points} max="500">{this.state.points}</Progress>
                                         </Row>
                                         <Row>
                                             <div className="points-btns">
-                                                <Button color="success" className="redeem-btn" onClick={this.redeem()} disabled={!this.state.canRedeem}>REDEEM NOW</Button> {' '}
+                                                <Button color="success" className="redeem-btn" onClick={this.toggle} disabled={!this.state.canRedeem}>REDEEM NOW</Button> {' '}
                                                 <Button href="/#/volunteer" color="danger" disabled={this.state.canRedeem}>GET MORE POINTS</Button> {' '}
+
+                                                <Modal isOpen={this.state.modal} fade={false} toggle={this.toggle} >
+                                                    <ModalHeader toggle={this.toggle}> FREE STARBUCKS COUPON </ModalHeader>
+
+                                                    <ModalBody>
+                                                        <img className="coupon" src={coupon}></img>
+                                                    </ModalBody>
+
+                                                    <ModalFooter>
+                                                        <Button style={couponRedeemed} color="success" onClick={this.redeem}> Redeem this prize </Button>
+                                                        <Button style={couponNotRedeemed} color="danger" onClick={this.toggle}> Redeemed! </Button>
+                                                    </ModalFooter>
+                                                </Modal>
+
                                             </div>
                                         </Row>
 
