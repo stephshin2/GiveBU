@@ -26,7 +26,7 @@ const bodyParser = require('body-parser');
 var dbConn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '',
+  password: 'gabbers',
   database: 'giveBU'
 });
 
