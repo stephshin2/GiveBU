@@ -14,7 +14,7 @@ import {Container, Row, Col} from 'react-bootstrap';
 import './Profile.css';
 import Home from "./Home";
 
-const cookies = new Cookies();
+import { cookies } from './App.js';
 
 class Profile extends Component {
 
@@ -177,6 +177,7 @@ class Profile extends Component {
 
 
         return (
+
 
             <div align="middle">
                 <div style={loading} className="loader">

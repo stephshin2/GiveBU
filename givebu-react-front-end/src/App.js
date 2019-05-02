@@ -17,10 +17,15 @@ import './App.css';
 import Home from "./Home";
 import Volunteer from "./Volunteer";
 import Profile from "./Profile";
+import Cookies from 'universal-cookie';
 
+
+export const cookies = new Cookies();
 
 class App extends Component {
+
   render() {
+
     return (
 
 
